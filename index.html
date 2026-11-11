@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Conway Guardian Insurance Group — Auto, Home, Renters, Landlord & Business Insurance</title>
+<meta name="description" content="Conway Guardian Insurance Group is an independent insurance agency proudly serving South Carolina. We compare coverage options from multiple carriers for auto, home, renters, landlord and business insurance." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0b2545;
+    --navy-2: #13315c;
+    --navy-3: #1d4373;
+    --gold: #d9a441;
+    --gold-soft: #fbf3e3;
+    --ink: #0f172a;
+    --ink-2: #334155;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --bg: #f8f6f1;
+    --white: #fff;
+    --blue-soft: #eef3fa;
+    --ok: #15803d;
+    --danger: #dc2626;
+    --radius: 16px;
+    --shadow: 0 1px 2px rgba(15,23,42,.04), 0 10px 30px rgba(15,23,42,.07);
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--sans); color: var(--ink); background: var(--bg); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  img, svg { display: block; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 22px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+  .ico { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Header ---------- */
+  .topline { background: var(--navy); color: #cbd5e1; font-size: 13px; }
+  .topline .wrap { display: flex; justify-content: space-between; gap: 12px; padding-top: 7px; padding-bottom: 7px; }
+  .topline b { color: #fff; font-weight: 600; }
+  @media (max-width: 700px) { .topline .hide-sm { display: none; } .topline .wrap { justify-content: center; } }
+
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,.96); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.site .wrap { display: flex; align-items: center; gap: 22px; height: 72px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--navy); }
+  .logo .mark { width: 40px; height: 40px; border-radius: 11px; background: var(--navy); color: var(--gold); display: grid; place-items: center; }
+  .logo .mark svg { width: 24px; height: 24px; }
+  .logo .name { font-family: var(--serif); font-weight: 700; font-size: 19px; line-height: 1.05; letter-spacing: -.01em; }
+  .logo .name small { display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+
+  nav.main { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+  nav.main > a, nav.main > .dd > button {
+    font: 600 15px var(--sans); color: var(--ink-2); text-decoration: none; background: none; border: 0; cursor: pointer;
+    padding: 9px 12px; border-radius: 9px; display: inline-flex; align-items: center; gap: 6px;
+  }
+  nav.main > a:hover, nav.main > .dd > button:hover, nav.main > a.on, nav.main .dd.on > button { color: var(--navy); background: var(--blue-soft); }
+  .dd { position: relative; }
+  .dd-menu {
+    position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+    background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow);
+    padding: 8px; width: 300px; display: none;
+  }
+  .dd.open .dd-menu { display: block; }
+  .dd-title { font-size: 11.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 8px 10px 4px; }
+  .dd-menu a { display: flex; gap: 12px; align-items: center; padding: 10px; border-radius: 10px; text-decoration: none; }
+  .dd-menu a:hover { background: var(--blue-soft); }
+  .dd-menu .ic { width: 38px; height: 38px; border-radius: 10px; background: var(--blue-soft); color: var(--navy-3); display: grid; place-items: center; flex: none; }
+  .dd-menu b { display: block; font-size: 14.5px; color: var(--ink); }
+  .dd-menu span span { font-size: 12.5px; color: var(--muted); }
+
+  .hdr-cta { display: flex; align-items: center; gap: 10px; }
+  .phone-link { font-weight: 700; font-size: 15px; color: var(--navy); text-decoration: none; white-space: nowrap; display: inline-flex; gap: 6px; align-items: center; }
+  .phone-link .ico { width: 18px; height: 18px; }
+  .burger { display: none; margin-left: auto; background: none; border: 1px solid var(--line); border-radius: 10px; width: 44px; height: 44px; cursor: pointer; color: var(--navy); place-items: center; }
+
+  @media (max-width: 1000px) {
+    nav.main, .hdr-cta .phone-link { display: none; }
+    .burger { display: grid; }
+    .hdr-cta { margin-left: 0; }
+  }
+  @media (max-width: 480px) { .hdr-cta .btn { display: none; } .logo .name { font-size: 17px; } }
+
+  .mobile-nav { display: none; position: fixed; inset: 0; top: 0; z-index: 60; background: #fff; overflow-y: auto; }
+  .mobile-nav.open { display: block; }
+  .mobile-nav .head { display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 0 22px; border-bottom: 1px solid var(--line); }
+  .mobile-nav .links { padding: 14px 22px 30px; display: grid; gap: 2px; }
+  .mobile-nav .links a { text-decoration: none; padding: 14px 6px; font-weight: 600; font-size: 17px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px; }
+  .mobile-nav .links .grp { font-size: 12px; font-weight: 800; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; padding: 18px 6px 6px; }
+  .mobile-nav .links .btn { margin-top: 18px; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font: 700 15px var(--sans); text-decoration: none; border: 0; cursor: pointer;
+    padding: 13px 20px; border-radius: 11px; transition: transform .08s, background .15s, box-shadow .15s; white-space: nowrap;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn-gold { background: var(--gold); color: var(--navy); box-shadow: 0 2px 0 #b9862b; }
+  .btn-gold:hover { background: #e3b257; }
+  .btn-navy { background: var(--navy); color: #fff; }
+  .btn-navy:hover { background: var(--navy-2); }
+  .btn-line { background: transparent; color: var(--navy); border: 2px solid var(--line); }
+  .btn-line:hover { border-color: var(--navy); }
+  .btn-ghost-w { background: rgba(255,255,255,.1); color: #fff; border: 1.5px solid rgba(255,255,255,.35); }
+  .btn-ghost-w:hover { background: rgba(255,255,255,.18); }
+  .btn-lg { padding: 16px 26px; font-size: 16px; border-radius: 13px; }
+  .btn:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid rgba(217,164,65,.6); outline-offset: 2px; }
+
+  /* ---------- Views ---------- */
+  .view { display: none; }
+  .view.on { display: block; animation: vfade .3s ease; }
+  @keyframes vfade { from { opacity: 0; } to { opacity: 1; } }
+
+  section.band { padding: 80px 0; }
+  section.band.tight { padding: 56px 0; }
+  section.white { background: #fff; }
+  .eyebrow { font-size: 12.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 700; letter-spacing: -.015em; line-height: 1.12; color: var(--navy); }
+  h2.sec { font-size: clamp(28px, 4vw, 40px); margin-bottom: 14px; }
+  p.lead { font-size: 18px; color: var(--ink-2); max-width: 640px; }
+  .center { text-align: center; }
+  .center p.lead { margin-left: auto; margin-right: auto; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background:
+      radial-gradient(1000px 500px at 90% -10%, rgba(217,164,65,.22), transparent 60%),
+      radial-gradient(700px 400px at -10% 110%, rgba(29,67,115,.9), transparent 60%),
+      var(--navy);
+    color: #fff; padding: 84px 0 96px; position: relative; overflow: hidden;
+  }
+  .hero .grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+  @media (max-width: 900px) { .hero .grid { grid-template-columns: 1fr; gap: 40px; } .hero { padding: 56px 0 64px; } }
+  .hero h1 { color: #fff; font-size: clamp(38px, 6vw, 62px); margin-bottom: 18px; }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero p.lead { color: #cbd5e1; font-size: 19px; margin-bottom: 28px; }
+  .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
+  .hero .proof { display: flex; gap: 22px; flex-wrap: wrap; color: #cbd5e1; font-size: 14.5px; font-weight: 500; }
+  .hero .proof span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero .proof .ico { width: 18px; height: 18px; color: var(--gold); }
+
+  .quick {
+    background: #fff; color: var(--ink); border-radius: 20px; padding: 26px; box-shadow: 0 30px 60px rgba(0,0,0,.25);
+  }
+  .quick h3 { font-size: 22px; margin-bottom: 4px; }
+  .quick p { color: var(--muted); font-size: 14.5px; margin-bottom: 16px; }
+  .quick .opts { display: grid; gap: 8px; margin-bottom: 16px; }
+  .qopt {
+    position: relative; display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    border: 2px solid var(--line); border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 15px; user-select: none;
+    transition: border-color .15s, background .15s;
+  }
+  .qopt input { position: absolute; opacity: 0; pointer-events: none; }
+  .qopt .ic { color: var(--navy-3); }
+  .qopt .box { margin-left: auto; width: 22px; height: 22px; border-radius: 6px; border: 2px solid #cbd5e1; display: grid; place-items: center; }
+  .qopt:hover { border-color: #b6c6dd; }
+  .qopt:has(input:checked) { border-color: var(--navy-3); background: var(--blue-soft); }
+  .qopt:has(input:checked) .box { background: var(--navy-3); border-color: var(--navy-3); }
+  .qopt:has(input:checked) .box::after, .chip:has(input[type=checkbox]:checked) .box::after, .cov-opt:has(input:checked) .box::after {
+    content: ""; width: 6px; height: 11px; border: solid #fff; border-width: 0 2.5px 2.5px 0; transform: translateY(-1px) rotate(45deg);
+  }
+  .qopt:has(input:focus-visible) { box-shadow: 0 0 0 3px rgba(29,67,115,.25); }
+  .quick .btn { width: 100%; }
+  .quick .err { color: var(--danger); font-size: 13.5px; font-weight: 600; margin: -6px 0 10px; display: none; }
+  .quick .err.show { display: block; }
+
+  /* ---------- Coverage cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 40px; }
+  @media (max-width: 1050px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .cards { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 440px) { .cards { grid-template-columns: 1fr; } }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 20px;
+    text-decoration: none; display: flex; flex-direction: column; gap: 10px; transition: transform .15s, box-shadow .15s, border-color .15s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: #cfd9e8; }
+  .card .ic { width: 52px; height: 52px; border-radius: 14px; background: var(--blue-soft); color: var(--navy-3); display: grid; place-items: center; margin-bottom: 6px; }
+  .card .ic .ico { width: 28px; height: 28px; }
+  .card h3 { font-size: 20px; }
+  .card p { color: var(--muted); font-size: 14.5px; flex: 1; }
+  .card .more { font-weight: 700; font-size: 14px; color: var(--navy-3); text-decoration: none; }
+  .card .more:hover { text-decoration: underline; }
+  div.card:hover { transform: none; }
+  .card-actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin-top: 6px; }
+  .card-actions .btn { padding: 10px 16px; font-size: 14px; width: 100%; }
+  .cards { text-align: left; }
+  .btn-call { background: #fff; color: var(--navy); box-shadow: 0 2px 0 #cbd5e1; padding-top: 10px; padding-bottom: 10px; }
+  .btn-call:hover { background: #f1f5f9; }
+  .btn-call > span { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+  .btn-call small { font-size: 13px; font-weight: 600; color: var(--navy-3); }
+
+  /* ---------- Why / steps ---------- */
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+  @media (max-width: 860px) { .three { grid-template-columns: 1fr; } }
+  .why { padding: 28px; border-radius: var(--radius); background: var(--bg); border: 1px solid var(--line); }
+  .why .ic { width: 48px; height: 48px; border-radius: 13px; background: var(--navy); color: var(--gold); display: grid; place-items: center; margin-bottom: 16px; }
+  .why h3 { font-size: 21px; margin-bottom: 8px; }
+  .why p { color: var(--ink-2); font-size: 15.5px; }
+
+  .compare { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  @media (max-width: 700px) { .compare { grid-template-columns: 1fr; } }
+  .compare > div { padding: 28px; }
+  .compare .them { background: #fff; }
+  .compare .us { background: var(--navy); color: #fff; }
+  .compare h4 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+  .compare .them h4 { color: var(--muted); }
+  .compare .us h4 { color: var(--gold); }
+  .compare ul { list-style: none; display: grid; gap: 10px; font-size: 15.5px; }
+  .compare li { display: flex; gap: 10px; align-items: flex-start; }
+  .compare .them li::before { content: "—"; color: #94a3b8; font-weight: 700; }
+  .compare .us li::before { content: "✓"; color: var(--gold); font-weight: 900; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; counter-reset: s; }
+  @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+  .stepc { position: relative; padding: 28px; background: #fff; border-radius: var(--radius); border: 1px solid var(--line); }
+  .stepc::before {
+    counter-increment: s; content: counter(s);
+    width: 40px; height: 40px; border-radius: 50%; background: var(--gold); color: var(--navy); font-weight: 800; font-size: 17px;
+    display: grid; place-items: center; margin-bottom: 14px;
+  }
+  .stepc h3 { font-size: 20px; margin-bottom: 6px; }
+  .stepc p { color: var(--ink-2); font-size: 15px; }
+
+  .bundle {
+    margin-top: 0; border-radius: 22px; padding: 40px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+    background: linear-gradient(120deg, var(--gold-soft), #fff); border: 1px solid #efdcb5;
+  }
+  @media (max-width: 760px) { .bundle { grid-template-columns: 1fr; padding: 28px; } }
+  .bundle h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 8px; }
+  .bundle p { color: var(--ink-2); }
+
+  .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+  @media (max-width: 860px) { .reviews { grid-template-columns: 1fr; } }
+  .review { background: #fff; border: 2px dashed #cbd5e1; border-radius: var(--radius); padding: 24px; color: var(--muted); }
+  .review .stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 10px; }
+  .review p { font-style: italic; margin-bottom: 12px; }
+  .review b { color: var(--ink-2); font-size: 14px; }
+  .placeholder-tag { display: inline-block; background: #fef3c7; color: #92400e; font-size: 11.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 4px 9px; border-radius: 6px; margin-top: 14px; }
+
+  /* FAQ */
+  .faq { max-width: 820px; margin: 36px auto 0; display: grid; gap: 10px; }
+  .faq details { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 0 22px; }
+  .faq summary { cursor: pointer; list-style: none; padding: 20px 0; font-weight: 700; font-size: 16.5px; display: flex; justify-content: space-between; gap: 16px; color: var(--navy); }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-size: 24px; line-height: 1; color: var(--gold); font-weight: 500; transition: transform .2s; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { padding: 0 0 20px; color: var(--ink-2); }
+
+  .cta-band { background: var(--navy); color: #fff; padding: 72px 0; text-align: center; }
+  .cta-band h2 { color: #fff; font-size: clamp(28px, 4vw, 42px); margin-bottom: 12px; }
+  .cta-band p { color: #cbd5e1; font-size: 18px; margin-bottom: 26px; }
+  .cta-band .row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ---------- Coverage detail page ---------- */
+  .page-hero { background: var(--navy); color: #fff; padding: 64px 0 70px; }
+  .page-hero .crumbs { font-size: 13.5px; color: #94a3b8; margin-bottom: 18px; }
+  .page-hero .crumbs a { color: #cbd5e1; text-decoration: none; }
+  .page-hero .crumbs a:hover { text-decoration: underline; }
+  .page-hero .row { display: flex; gap: 22px; align-items: flex-start; }
+  .page-hero .bigic { width: 72px; height: 72px; border-radius: 18px; background: rgba(217,164,65,.15); color: var(--gold); display: grid; place-items: center; flex: none; }
+  .page-hero .bigic .ico { width: 38px; height: 38px; }
+  .page-hero h1 { color: #fff; font-size: clamp(34px, 5vw, 52px); margin-bottom: 12px; }
+  .page-hero p { color: #cbd5e1; font-size: 18.5px; max-width: 680px; margin-bottom: 24px; }
+  @media (max-width: 600px) { .page-hero .bigic { display: none; } }
+
+  .detail { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: start; }
+  @media (max-width: 960px) { .detail { grid-template-columns: 1fr; } }
+  .detail h2 { font-size: 28px; margin-bottom: 18px; }
+  .covers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 44px; }
+  @media (max-width: 600px) { .covers { grid-template-columns: 1fr; } }
+  .covers div { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .covers b { display: flex; gap: 10px; align-items: center; color: var(--navy); font-size: 16px; margin-bottom: 4px; }
+  .covers b::before { content: "✓"; width: 22px; height: 22px; border-radius: 50%; background: var(--gold-soft); color: #a16f12; font-size: 12px; font-weight: 900; display: grid; place-items: center; flex: none; }
+  .covers span { color: var(--muted); font-size: 14.5px; display: block; padding-left: 32px; }
+  .who { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 44px; }
+  .who span { background: #fff; border: 1px solid var(--line); padding: 9px 15px; border-radius: 999px; font-weight: 600; font-size: 14.5px; color: var(--ink-2); }
+  .detail .faq { margin: 0; }
+  .side { position: sticky; top: 96px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 26px; box-shadow: var(--shadow); }
+  .side h3 { font-size: 22px; margin-bottom: 6px; }
+  .side p { color: var(--muted); font-size: 14.5px; margin-bottom: 18px; }
+  .side .btn { width: 100%; margin-bottom: 10px; }
+  .side ul { list-style: none; margin-top: 14px; display: grid; gap: 8px; font-size: 14px; color: var(--ink-2); }
+  .side li::before { content: "✓ "; color: var(--ok); font-weight: 800; }
+  .also { margin-top: 56px; }
+  .also .cards { grid-template-columns: repeat(4, 1fr); margin-top: 18px; }
+  @media (max-width: 860px) { .also .cards { grid-template-columns: 1fr 1fr; } }
+
+  /* ---------- About / contact ---------- */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 32px; } }
+  .photo-ph { aspect-ratio: 4/5; border-radius: 24px; background: linear-gradient(160deg, #dbe4f0, #f1f5f9); border: 2px dashed #b6c6dd; display: grid; place-items: center; color: var(--muted); text-align: center; font-weight: 600; padding: 20px; }
+  .prose p { color: var(--ink-2); font-size: 17px; margin-bottom: 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 26px; }
+  .stats div { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .stats b { display: block; font-family: var(--serif); font-size: 26px; color: var(--navy); }
+  .stats span { font-size: 13px; color: var(--muted); font-weight: 600; }
+
+  .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 32px; align-items: start; }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+  .info-list { display: grid; gap: 14px; }
+  .info { display: flex; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .info .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--blue-soft); color: var(--navy-3); display: grid; place-items: center; flex: none; }
+  .info b { display: block; color: var(--navy); }
+  .info span { color: var(--ink-2); font-size: 15px; }
+
+  .panel { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 30px; box-shadow: var(--shadow); }
+  @media (max-width: 520px) { .panel { padding: 22px 18px; } }
+
+  /* ---------- Forms ---------- */
+  .field { margin-bottom: 16px; }
+  .field > label, .q-label { display: block; font-weight: 700; font-size: 14.5px; margin-bottom: 8px; color: var(--ink-2); }
+  .opt { font-weight: 500; color: var(--muted); }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 13px 14px; border: 2px solid var(--line); border-radius: 11px;
+    font: 16px var(--sans); color: var(--ink); background: #fff; outline: none; transition: border-color .15s, box-shadow .15s;
+    -webkit-appearance: none; appearance: none;
+  }
+  .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--navy-3); box-shadow: 0 0 0 3px rgba(29,67,115,.14); }
+  .field .err-msg { display: none; color: var(--danger); font-size: 13px; font-weight: 600; margin-top: 6px; }
+  .field.bad input, .field.bad select, .field.bad textarea { border-color: var(--danger); }
+  .field.bad .err-msg { display: block; }
+  .field .hint { color: var(--muted); font-size: 13px; margin-top: 6px; }
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+  @media (max-width: 520px) { .g2 { grid-template-columns: 1fr; } }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    position: relative; display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 16px; border: 2px solid var(--line); border-radius: 12px; background: #fff;
+    font-weight: 600; font-size: 15px; cursor: pointer; user-select: none; transition: border-color .15s, background .15s;
+  }
+  .chip input { position: absolute; opacity: 0; pointer-events: none; }
+  .chip:hover { border-color: #b6c6dd; }
+  .chip:has(input:checked) { border-color: var(--navy-3); background: var(--blue-soft); color: var(--navy); }
+  .chip:has(input:focus-visible) { box-shadow: 0 0 0 3px rgba(29,67,115,.25); }
+  .chip .box { width: 18px; height: 18px; border-radius: 5px; border: 2px solid #cbd5e1; display: grid; place-items: center; }
+  .chip:has(input:checked) .box { background: var(--navy-3); border-color: var(--navy-3); }
+  .chip:has(input:checked) .box::after { width: 4px; height: 9px; border-width: 0 2px 2px 0; }
+  .q { margin-bottom: 22px; }
+  .q-group { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 12px; margin: 30px 0 16px; }
+  .qgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+  .qgrid.three { grid-template-columns: 1fr 1.2fr 1.2fr; }
+  .qgrid .q.full { grid-column: 1 / -1; }
+  @media (max-width: 560px) { .qgrid, .qgrid.three { grid-template-columns: 1fr; } }
+  .fixed-field { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 13px 14px; border: 2px solid var(--line); border-radius: 11px; background: #f1f5f9; font-weight: 700; color: var(--navy); }
+  .fixed-field span { font-size: 12px; font-weight: 600; color: var(--muted); }
+  .vblock { border: 2px solid var(--line); border-radius: 16px; padding: 18px 18px 2px; margin: 0 0 16px; background: #fbfcfe; }
+  .vhead { display: flex; align-items: center; gap: 8px; font-weight: 800; color: var(--navy); margin-bottom: 14px; }
+  .vhead .ico { width: 20px; height: 20px; color: var(--navy-3); }
+  .lender { display: none; border-top: 1px dashed #cbd5e1; padding-top: 14px; margin-bottom: 8px; }
+  .lender.show { display: block; animation: vfade .2s; }
+  .lender-title { font-weight: 800; font-size: 14px; color: var(--navy-3); margin-bottom: 12px; }
+  .q-group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .wstep .tag + h2 + .sub + .step-err + .q-group { margin-top: 6px; }
+  .q.bad .chips .chip { border-color: #fca5a5; }
+  .q .err-msg { display: none; color: var(--danger); font-size: 13px; font-weight: 600; margin-top: 8px; }
+  .q.bad .err-msg { display: block; }
+
+  .consent { display: flex; gap: 12px; align-items: flex-start; background: var(--bg); border: 2px solid var(--line); border-radius: 12px; padding: 14px; cursor: pointer; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+  .consent input { width: 20px; height: 20px; flex: none; margin-top: 1px; accent-color: var(--navy-3); }
+  .consent.bad { border-color: var(--danger); background: #fef2f2; }
+
+  /* ---------- Quote wizard ---------- */
+  .quote-wrap { max-width: 760px; margin: 0 auto; }
+  .wiz-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; font-size: 13.5px; font-weight: 700; }
+  .wiz-head .nm { color: var(--navy-3); }
+  .wiz-head .ct { color: var(--muted); }
+  .bar { height: 6px; border-radius: 99px; background: #e5eaf1; overflow: hidden; margin-bottom: 26px; }
+  .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--navy-3), var(--gold)); border-radius: 99px; transition: width .35s ease; }
+  .wstep { display: none; }
+  .wstep.on { display: block; animation: vfade .25s ease; }
+  .wstep h2 { font-size: clamp(24px, 3.4vw, 30px); margin-bottom: 6px; }
+  .wstep .sub { color: var(--muted); margin-bottom: 22px; }
+  .wstep .tag { display: inline-flex; align-items: center; gap: 8px; background: var(--blue-soft); color: var(--navy-3); font-weight: 700; font-size: 13px; padding: 6px 11px; border-radius: 99px; margin-bottom: 12px; }
+  .wstep .tag .ico { width: 16px; height: 16px; }
+  .step-err { display: none; background: #fef2f2; border: 1px solid #fecaca; color: var(--danger); border-radius: 10px; padding: 10px 14px; font-weight: 600; font-size: 14px; margin-bottom: 16px; }
+  .step-err.show { display: block; }
+
+  .cov-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 560px) { .cov-grid { grid-template-columns: 1fr; } }
+  .cov-opt {
+    position: relative; display: flex; align-items: center; gap: 14px; padding: 16px; border: 2px solid var(--line); border-radius: 14px;
+    cursor: pointer; background: #fff; user-select: none; transition: border-color .15s, background .15s;
+  }
+  .cov-opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .cov-opt .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--blue-soft); color: var(--navy-3); display: grid; place-items: center; flex: none; }
+  .cov-opt b { display: block; font-size: 16px; }
+  .cov-opt small { color: var(--muted); font-size: 13px; }
+  .cov-opt .box { margin-left: auto; width: 24px; height: 24px; border-radius: 7px; border: 2px solid #cbd5e1; display: grid; place-items: center; flex: none; }
+  .cov-opt:hover { border-color: #b6c6dd; }
+  .cov-opt:has(input:checked) { border-color: var(--navy-3); background: var(--blue-soft); }
+  .cov-opt:has(input:checked) .ic { background: var(--navy); color: var(--gold); }
+  .cov-opt:has(input:checked) .box { background: var(--navy-3); border-color: var(--navy-3); }
+  .cov-opt:has(input:focus-visible) { box-shadow: 0 0 0 3px rgba(29,67,115,.25); }
+  .bundle-note { display: none; margin-top: 14px; background: var(--gold-soft); border: 1px solid #efdcb5; color: #7a5410; border-radius: 12px; padding: 12px 14px; font-weight: 600; font-size: 14.5px; }
+  .bundle-note.show { display: block; animation: vfade .25s; }
+
+  .wiz-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .wiz-nav .back { background: none; border: 0; font: 700 15px var(--sans); color: var(--muted); cursor: pointer; padding: 10px 6px; }
+  .wiz-nav .back:hover { color: var(--ink); }
+  .secure { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--muted); font-size: 13px; margin-top: 16px; }
+  .secure .ico { width: 16px; height: 16px; }
+
+  .review-box { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-bottom: 18px; }
+  .rv-sec { padding: 16px 18px; }
+  .rv-sec + .rv-sec { border-top: 1px solid var(--line); }
+  .rv-sec .hd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .rv-sec .hd b { color: var(--navy); font-size: 15px; }
+  .rv-sec .edit { background: none; border: 0; color: var(--navy-3); font: 700 13.5px var(--sans); cursor: pointer; }
+  .rv-sec .edit:hover { text-decoration: underline; }
+  .rv-sec dl { display: grid; grid-template-columns: 170px 1fr; gap: 4px 12px; font-size: 14.5px; }
+  @media (max-width: 520px) { .rv-sec dl { grid-template-columns: 1fr; } .rv-sec dd { margin-bottom: 6px; } }
+  .rv-sec dt { color: var(--muted); }
+  .rv-sec dd { font-weight: 600; color: var(--ink); word-break: break-word; }
+
+  /* Success + email preview */
+  .done { text-align: center; }
+  .done .check { width: 78px; height: 78px; border-radius: 50%; background: var(--ok); color: #fff; display: grid; place-items: center; margin: 0 auto 18px; font-size: 38px; font-weight: 900; box-shadow: 0 0 0 10px #dcfce7; animation: pop .45s cubic-bezier(.2,1.4,.4,1); }
+  @keyframes pop { from { transform: scale(.4); opacity: 0; } }
+  .done h2 { font-size: 30px; margin-bottom: 8px; }
+  .done > p { color: var(--ink-2); max-width: 520px; margin: 0 auto; }
+  .demo-label { display: flex; align-items: center; gap: 10px; justify-content: center; margin: 34px 0 12px; font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #92400e; }
+  .demo-label::before, .demo-label::after { content: ""; height: 1px; flex: 1; background: #fde68a; }
+  .email {
+    text-align: left; border: 1px solid #d6dde8; border-radius: 14px; overflow: hidden; background: #fff;
+    box-shadow: 0 12px 30px rgba(15,23,42,.08); font-size: 14.5px;
+  }
+  .email .chrome { background: #f1f5f9; padding: 10px 14px; display: flex; gap: 6px; border-bottom: 1px solid #e2e8f0; }
+  .email .chrome i { width: 11px; height: 11px; border-radius: 50%; background: #cbd5e1; display: block; }
+  .email .meta { padding: 16px 20px; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+  .email .meta div { display: flex; gap: 8px; }
+  .email .meta span { color: var(--muted); width: 60px; flex: none; }
+  .email .meta .subj { font-weight: 800; color: var(--ink); font-size: 16px; margin-top: 6px; }
+  .email .body { padding: 18px 20px 22px; }
+  .email .body h4 { font-family: var(--sans); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--navy-3); margin: 16px 0 6px; }
+  .email .body h4:first-child { margin-top: 0; }
+  .email .body table { width: 100%; border-collapse: collapse; }
+  .email .body td { padding: 5px 0; vertical-align: top; border-bottom: 1px solid #f1f5f9; }
+  .email .body td:first-child { color: var(--muted); width: 42%; padding-right: 12px; }
+  .email .body td:last-child { font-weight: 600; }
+  .email .quick-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .email .quick-actions span { background: var(--blue-soft); color: var(--navy-3); font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 8px; }
+
+  /* Footer */
+  footer { background: #081a33; color: #94a3b8; padding: 64px 0 28px; font-size: 14.5px; }
+  footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 44px; }
+  @media (max-width: 860px) { footer .cols { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { footer .cols { grid-template-columns: 1fr; } }
+  footer .logo { color: #fff; margin-bottom: 14px; }
+  footer .logo .name small { color: #94a3b8; }
+  footer h5 { color: #fff; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
+  footer ul { list-style: none; display: grid; gap: 9px; }
+  footer a { text-decoration: none; color: #cbd5e1; }
+  footer a:hover { color: #fff; }
+  footer .legal { border-top: 1px solid rgba(255,255,255,.1); padding-top: 22px; font-size: 12.5px; line-height: 1.6; display: grid; gap: 8px; }
+
+  .mobile-cta { display: none; }
+  @media (max-width: 700px) {
+    .mobile-cta { display: flex; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40; gap: 8px; }
+    .mobile-cta .btn { flex: 1; box-shadow: 0 10px 25px rgba(0,0,0,.2); }
+    body { padding-bottom: 76px; }
+    body.in-quote .mobile-cta { display: none; }
+    body.in-quote { padding-bottom: 0; }
+  }
+
+  .policy h2 { font-size: 22px; margin: 28px 0 10px; }
+  .policy p, .policy li { color: var(--ink-2); margin-bottom: 10px; }
+  .policy ul { padding-left: 22px; }
+  .template-note { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; border-radius: 12px; padding: 14px 16px; font-size: 14.5px; margin-bottom: 18px; }
+
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5l7.5 2.8v6.1c0 4.8-3.2 8.7-7.5 10.1-4.3-1.4-7.5-5.3-7.5-10.1V5.3z"/><path d="M8.5 12l2.4 2.4 4.6-4.8"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><path d="M3 13l2.2-5.2A2 2 0 0 1 7 6.5h10a2 2 0 0 1 1.8 1.3L21 13v4a1 1 0 0 1-1 1h-1.2M3 13v4a1 1 0 0 0 1 1h1.2M3 13h18M9 18h6"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+  <symbol id="i-homeowners" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5.5h4V20"/></symbol>
+  <symbol id="i-renters" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4.2"/><path d="M11 12l8.5-8.5M16.5 6.5l2.5 2.5M14.2 8.8l2 2"/></symbol>
+  <symbol id="i-landlord" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8.5l6-4V21"/><path d="M11 21V10h8v11"/><path d="M8 10.5v.01M8 13.5v.01M8 16.5v.01M14.5 13.5h2M14.5 16.5h2"/></symbol>
+  <symbol id="i-business" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V7M3 12.5h18M11 12.5v2h2v-2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 7.2 7.2l1.4-2.1 4.2 1.6V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.1 1.5 1.5 0 0 1 5 3.5z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+</svg>
+
+<div class="topline">
+  <div class="wrap">
+    <span class="hide-sm">Independent insurance agency · <b>Proudly Serving South Carolina</b></span>
+    <span>Questions? Call <a class="js-tel" href="#" style="color:#fff;font-weight:700;text-decoration:none"><span class="js-phone">803-768-0594</span></a></span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="Conway Guardian Insurance Group — home">
+      <span class="mark"><svg class="ico"><use href="#i-shield"/></svg></span>
+      <span class="name">Conway Guardian<small>Insurance Group</small></span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <div class="dd" id="covDD">
+        <button type="button" aria-expanded="false" aria-haspopup="true">Coverage <svg class="ico" style="width:16px;height:16px"><use href="#i-chev"/></svg></button>
+        <div class="dd-menu" id="covMenu"></div>
+      </div>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+    <div class="hdr-cta">
+      <a class="phone-link js-tel" href="#"><svg class="ico"><use href="#i-phone"/></svg><span class="js-phone">803-768-0594</span></a>
+      <a href="#quote" class="btn btn-gold">Get a Quote</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu"><svg class="ico"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu">
+  <div class="head">
+    <a href="#" class="logo"><span class="mark"><svg class="ico"><use href="#i-shield"/></svg></span><span class="name">Conway Guardian<small>Insurance Group</small></span></a>
+    <button class="burger" style="display:grid" id="closeNav" aria-label="Close menu"><svg class="ico"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="links" id="mobileLinks"></div>
+</div>
+
+<main id="app">
+
+  <!-- ================= HOME ================= -->
+  <div class="view" data-view="">
+    <section class="hero">
+      <div class="wrap grid">
+        <div>
+          <div class="eyebrow">Independent insurance agency</div>
+          <h1>Coverage That’s Built Around <em>You</em> — Not One Company’s Price List.</h1>
+          <p class="lead">At Conway Guardian Insurance Group, we believe insurance should fit your needs, not the other way around. As an independent insurance agency serving South Carolina, we compare coverage options from multiple carriers to help individuals, families, property owners, and businesses find the protection they need at a competitive price.</p>
+          <div class="ctas">
+            <a href="#quote" class="btn btn-gold btn-lg">Get my free quote →</a>
+            <a href="#" class="btn btn-call btn-lg js-tel"><svg class="ico" style="width:20px;height:20px"><use href="#i-phone"/></svg><span>Call Now<small class="js-phone">803-768-0594</small></span></a>
+          </div>
+          <div class="proof">
+            <span><svg class="ico"><use href="#i-scale"/></svg>We shop multiple carriers</span>
+            <span><svg class="ico"><use href="#i-flag"/></svg>Proudly Serving South Carolina</span>
+            <span><svg class="ico"><use href="#i-check"/></svg>Free quote requests</span>
+          </div>
+        </div>
+        <form class="quick" id="quickForm" novalidate>
+          <h3>What do you need covered?</h3>
+          <p>Pick one or more and we’ll take you to the right quote form.</p>
+          <div class="opts" id="quickOpts"></div>
+          <div class="err" id="quickErr">Pick at least one to get started.</div>
+          <button type="button" class="btn btn-navy btn-lg" id="quickGo">Start my quote →</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap center">
+        <div class="eyebrow">Our coverage</div>
+        <h2 class="sec">Protection for Everything That Matters</h2>
+        <p class="lead">Whether you’re protecting your vehicle, your home, your rental property, or your business, Conway Guardian Insurance Group is here to help you explore insurance options that fit your needs.</p>
+        <div class="cards" id="homeCards"></div>
+      </div>
+    </section>
+
+    <section class="band white">
+      <div class="wrap">
+        <div class="center">
+          <div class="eyebrow">Why independent matters</div>
+          <h2 class="sec">We Work for You, Not Just One Insurance Company.</h2>
+          <p class="lead">As an independent insurance agency, Conway Guardian Insurance Group offers access to multiple insurance carriers rather than being limited to one company’s products. We take the time to understand your needs, compare available coverage options, and help you make informed decisions about protecting what matters most.</p>
+        </div>
+        <div class="three">
+          <div class="why"><div class="ic"><svg class="ico"><use href="#i-scale"/></svg></div><h3>We Shop, You Save Time</h3><p>Instead of contacting multiple insurance companies yourself, let us do the comparing. We explore available options to help you find coverage that fits your needs.</p></div>
+          <div class="why"><div class="ic"><svg class="ico"><use href="#i-layers"/></svg></div><h3>Everything in One Place</h3><p>From auto and homeowners insurance to rental properties and business coverage, we help you manage your insurance needs through one agency.</p></div>
+          <div class="why"><div class="ic"><svg class="ico"><use href="#i-user"/></svg></div><h3>A Real Person on Your Side</h3><p>Insurance shouldn’t feel complicated. We’re here to answer your questions, assist with policy changes, and provide guidance when you need it.</p></div>
+        </div>
+        <div class="compare">
+          <div class="them"><h4>Single-Carrier Agency</h4><ul><li>Insurance options from one carrier</li><li>Limited to that company’s available products</li><li>Coverage and pricing based on one carrier’s offerings</li></ul></div>
+          <div class="us"><h4>Conway Guardian Insurance Group</h4><ul><li>Access to multiple insurance carriers</li><li>Personalized coverage recommendations</li><li>Assistance comparing available coverage and pricing</li><li>Ongoing support with policy questions and service needs</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <div class="center">
+          <div class="eyebrow">How it works</div>
+          <h2 class="sec">Three simple steps</h2>
+        </div>
+        <div class="steps">
+          <div class="stepc"><h3>Tell us what you need</h3><p>Answer a few quick questions online — about 2 minutes. No Social Security number required.</p></div>
+          <div class="stepc"><h3>We compare carriers</h3><p>We review available coverage options from multiple carriers based on your needs.</p></div>
+          <div class="stepc"><h3>Choose with confidence</h3><p>We walk you through your options in plain English so you can make an informed decision.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band tight">
+      <div class="wrap">
+        <div class="bundle">
+          <div>
+            <h2>Combine your policies in one place</h2>
+            <p>Some carriers offer multi-policy discounts when you combine auto with home or renters coverage. Either way, it’s simpler with one agency helping you manage everything.</p>
+          </div>
+          <a href="#quote" class="btn btn-navy btn-lg" data-pre="auto,homeowners">Quote a bundle →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="band white">
+      <div class="wrap center">
+        <div class="eyebrow">What clients say</div>
+        <h2 class="sec">Trusted by families and business owners</h2>
+        <div class="reviews">
+          <div class="review"><div class="stars">★★★★★</div><p>Client review goes here — pulled from Google or Facebook reviews.</p><b>Client name, State</b></div>
+          <div class="review"><div class="stars">★★★★★</div><p>Client review goes here — pulled from Google or Facebook reviews.</p><b>Client name, State</b></div>
+          <div class="review"><div class="stars">★★★★★</div><p>Client review goes here — pulled from Google or Facebook reviews.</p><b>Client name, State</b></div>
+        </div>
+        <span class="placeholder-tag">Placeholder — real reviews go here</span>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <div class="center"><div class="eyebrow">FAQ</div><h2 class="sec">Common questions</h2></div>
+        <div class="faq">
+          <details><summary>What is an independent insurance agency?</summary><p>We're not tied to a single insurance company. We work with multiple carriers, so we can compare coverage and pricing and recommend the option that fits you best.</p></details>
+          <details><summary>Does it cost anything to request a quote?</summary><p>No. Requesting a quote is free and there’s no obligation to buy.</p></details>
+          <details><summary>What areas do you serve?</summary><p>We’re proudly serving South Carolina — individuals, families, property owners and businesses across the state.</p></details>
+          <details><summary>What information do I need to get a quote?</summary><p>Just the basics to start: what you want covered, your ZIP code and how to reach you. We’ll follow up for anything else we need — we never ask for your Social Security number on this website.</p></details>
+          <details><summary>Can you help if I already have insurance?</summary><p>Absolutely. We can review your current policies, point out possible gaps in coverage, and compare available options from multiple carriers.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <h2>Ready to explore your coverage options?</h2>
+        <p>Request a free quote in a few minutes, or call to talk with a real person.</p>
+        <div class="row">
+          <a href="#quote" class="btn btn-gold btn-lg">Get my free quote →</a>
+          <a href="#" class="btn btn-ghost-w btn-lg js-tel">📞 Call Now <span class="js-phone">803-768-0594</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= COVERAGE DETAIL (shared template) ================= -->
+  <div class="view" data-view="coverage" id="coverageView"></div>
+
+  <!-- ================= ABOUT ================= -->
+  <div class="view" data-view="about">
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="crumbs"><a href="#">Home</a> / About</div>
+        <h1>About Conway Guardian Insurance Group</h1>
+        <p>An independent agency built on one simple idea: you deserve someone in your corner when it comes to protecting what you've worked for.</p>
+      </div>
+    </section>
+    <section class="band">
+      <div class="wrap split">
+        <div class="photo-ph">Agent photo goes here<br><small style="font-weight:500">A friendly headshot builds trust</small></div>
+        <div class="prose">
+          <div class="eyebrow">Meet your agent</div>
+          <h2 class="sec">[Agent name], Owner & Licensed Agent</h2>
+          <p>[Short story: how long she's been in insurance, why she started Conway Guardian, and what she loves about helping clients.]</p>
+          <p>As an independent agency, Conway Guardian Insurance Group works with multiple insurance carriers instead of just one. That means we can compare available coverage and pricing and help you choose what fits your needs — whether that's your first car insurance policy, a growing rental portfolio, or coverage for your business.</p>
+          <p>We’re proudly serving South Carolina, offering personalized service to individuals, families, property owners and businesses across the state.</p>
+          <div class="stats">
+            <div><b>SC</b><span>Proudly serving South Carolina</span></div>
+            <div><b>5</b><span>Lines of coverage</span></div>
+            <div><b>[#]</b><span>Years experience</span></div>
+          </div>
+          <div style="margin-top:26px"><a href="#quote" class="btn btn-gold btn-lg">Get a quote →</a></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= CONTACT ================= -->
+  <div class="view" data-view="contact">
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="crumbs"><a href="#">Home</a> / Contact</div>
+        <h1>Let's talk</h1>
+        <p>Have a question about a policy, a claim, or your options? Reach out — a real person will get back to you.</p>
+      </div>
+    </section>
+    <section class="band">
+      <div class="wrap contact-grid">
+        <div class="info-list">
+          <div class="info"><div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div><div><b>Phone</b><span class="js-phone">803-768-0594</span><div style="margin-top:10px"><a href="#" class="btn btn-navy js-tel">📞 Call Now</a></div></div></div>
+          <div class="info"><div class="ic"><svg class="ico"><use href="#i-mail"/></svg></div><div><b>Email</b><span class="js-email">info@conwayguardian.com</span></div></div>
+          <div class="info"><div class="ic"><svg class="ico"><use href="#i-clock"/></svg></div><div><b>Hours</b><span class="js-hours">Mon–Fri 9am–6pm ET</span></div></div>
+          <div class="info"><div class="ic"><svg class="ico"><use href="#i-map"/></svg></div><div><b>Service area</b><span>Proudly Serving South Carolina</span></div></div>
+          <div class="info" style="background:var(--navy);color:#fff;border-color:var(--navy)"><div class="ic" style="background:rgba(217,164,65,.18);color:var(--gold)"><svg class="ico"><use href="#i-shield"/></svg></div><div><b style="color:#fff">Looking for a quote?</b><span style="color:#cbd5e1">Our quote form is the fastest way.</span><div style="margin-top:10px"><a href="#quote" class="btn btn-gold">Start a quote →</a></div></div></div>
+        </div>
+        <div class="panel" id="contactPanel">
+          <form id="contactForm" novalidate>
+            <h2 style="font-size:26px;margin-bottom:6px">Send us a message</h2>
+            <p style="color:var(--muted);margin-bottom:20px">We usually reply within one business day.</p>
+            <div class="g2">
+              <div class="field" id="cf-name-f"><label for="cf-name">Name</label><input id="cf-name" autocomplete="name" /><div class="err-msg">Please enter your name.</div></div>
+              <div class="field" id="cf-phone-f"><label for="cf-phone">Phone <span class="opt">(optional)</span></label><input id="cf-phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(555) 555-5555" /></div>
+            </div>
+            <div class="field" id="cf-email-f"><label for="cf-email">Email</label><input id="cf-email" type="email" autocomplete="email" placeholder="you@example.com" /><div class="err-msg">Please enter a valid email.</div></div>
+            <div class="field"><label for="cf-topic">What's this about?</label>
+              <select id="cf-topic"><option>A question about coverage</option><option>Review my current policies</option><option>Make a change to my policy</option><option>Help with a claim</option><option>Something else</option></select></div>
+            <div class="field" id="cf-msg-f"><label for="cf-msg">Message</label><textarea id="cf-msg" rows="5"></textarea><div class="err-msg">Please write a short message.</div></div>
+            <button class="btn btn-navy btn-lg" style="width:100%" type="button" id="cfSend">Send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= QUOTE ================= -->
+  <div class="view" data-view="quote">
+    <section class="band" style="padding-top:44px">
+      <div class="wrap">
+        <div class="quote-wrap">
+          <div class="panel" id="quotePanel">
+            <form id="quoteForm" novalidate>
+              <div class="wiz-head"><span class="nm" id="wizName">Coverage</span><span class="ct" id="wizCount">Step 1 of 4</span></div>
+              <div class="bar"><i id="wizBar"></i></div>
+
+              <div class="hp" style="position:absolute;left:-9999px" aria-hidden="true"><input id="website_url" tabindex="-1" autocomplete="off" /></div>
+
+              <section class="wstep" data-key="coverage" data-name="Coverage">
+                <h2>What would you like a quote on?</h2>
+                <p class="sub">Choose everything you're interested in. We'll only ask about what you pick.</p>
+                <div class="step-err">Please choose at least one type of coverage.</div>
+                <div class="cov-grid" id="covGrid"></div>
+                <div class="bundle-note" id="bundleNote">Nice — bundling multiple policies with one carrier often unlocks discounts. We'll look for them.</div>
+              </section>
+
+              <div id="typeSteps"></div>
+
+              <section class="wstep" data-key="about" data-name="Your details">
+                <h2>A little about you</h2>
+                <p class="sub">Your home or mailing address helps us review coverage options available in your area.</p>
+                <div class="step-err">Please fix the highlighted fields.</div>
+                <div class="field" id="street-f"><label for="street">Street address <span class="opt">(optional)</span></label><input id="street" autocomplete="street-address" placeholder="123 Main St" /></div>
+                <div class="g2">
+                  <div class="field" id="city-f"><label for="city">City <span class="opt">(optional)</span></label><input id="city" autocomplete="address-level2" placeholder="e.g. Columbia" /></div>
+                  <div class="field"><label>State</label><div class="fixed-field">South Carolina (SC)<span>Serving South Carolina</span></div></div>
+                </div>
+                <div class="g2">
+                  <div class="field" id="zip-f"><label for="zip">ZIP code</label><input id="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="e.g. 29201" /><div class="err-msg">Enter a 5-digit ZIP.</div></div>
+                  <div></div>
+                </div>
+                <div class="q" data-q="contactPref" data-req="1">
+                  <div class="q-label">How should we reach you?</div>
+                  <div class="chips">
+                    <label class="chip"><input type="radio" name="contactPref" value="Phone call" />📞 Phone call</label>
+                    <label class="chip"><input type="radio" name="contactPref" value="Text message" />💬 Text</label>
+                    <label class="chip"><input type="radio" name="contactPref" value="Email" />✉️ Email</label>
+                  </div>
+                  <div class="err-msg">Please pick one.</div>
+                </div>
+                <div class="q" data-q="bestTime">
+                  <div class="q-label">Best time to reach you <span class="opt">(optional)</span></div>
+                  <div class="chips">
+                    <label class="chip"><input type="radio" name="bestTime" value="Morning" />Morning</label>
+                    <label class="chip"><input type="radio" name="bestTime" value="Afternoon" />Afternoon</label>
+                    <label class="chip"><input type="radio" name="bestTime" value="Evening" />Evening</label>
+                    <label class="chip"><input type="radio" name="bestTime" value="Anytime" />Anytime</label>
+                  </div>
+                </div>
+              </section>
+
+              <section class="wstep" data-key="contact" data-name="Contact info">
+                <h2>Where should we send your quote?</h2>
+                <p class="sub">Your agent will reach out with your options — usually within one business day.</p>
+                <div class="step-err">Please fix the highlighted fields.</div>
+                <div class="g2">
+                  <div class="field" id="first-f"><label for="first">First name</label><input id="first" autocomplete="given-name" /><div class="err-msg">Required.</div></div>
+                  <div class="field" id="last-f"><label for="last">Last name</label><input id="last" autocomplete="family-name" /><div class="err-msg">Required.</div></div>
+                </div>
+                <div class="g2">
+                  <div class="field" id="phone-f"><label for="phone">Phone</label><input id="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(555) 555-5555" /><div class="err-msg">Enter a 10-digit phone number.</div></div>
+                  <div class="field" id="email-f"><label for="email">Email</label><input id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" /><div class="err-msg">Enter a valid email.</div></div>
+                </div>
+                <div class="field"><label for="notes">Anything else we should know? <span class="opt">(optional)</span></label><textarea id="notes" rows="3" placeholder="e.g. current carrier, renewal date, questions you have…"></textarea></div>
+                <label class="consent" id="consent-f"><input type="checkbox" id="consent" /><span>By checking this box, I agree that <b>Conway Guardian Insurance Group</b> may contact me about my quote by phone, text message or email at the number and address I provided, including by automated means. Consent is not a condition of purchase. Message and data rates may apply. Reply STOP to opt out.</span></label>
+              </section>
+
+              <section class="wstep" data-key="review" data-name="Review">
+                <h2>Review your request</h2>
+                <p class="sub">Make sure everything looks right, then send it over.</p>
+                <div class="review-box" id="reviewBox"></div>
+                <button type="button" class="btn btn-gold btn-lg" style="width:100%" id="sendBtn">Send my quote request →</button>
+              </section>
+
+              <div class="wiz-nav" id="wizNav">
+                <button type="button" class="back" id="wizBack">← Back</button>
+                <button type="button" class="btn btn-navy btn-lg" id="wizNext">Continue →</button>
+              </div>
+              <div class="secure"><svg class="ico"><use href="#i-lock"/></svg>We never ask for your SSN online. Your info is only used to prepare your quote.</div>
+            </form>
+            <div id="quoteDone" hidden></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= PRIVACY ================= -->
+  <div class="view" data-view="privacy">
+    <section class="page-hero"><div class="wrap"><div class="crumbs"><a href="#">Home</a> / Privacy Policy</div><h1>Privacy Policy</h1><p>How we collect, use and protect your information.</p></div></section>
+    <section class="band"><div class="wrap" style="max-width:820px">
+      <div class="template-note"><b>Template placeholder.</b> Replace this with a privacy policy reviewed for the agency before launch.</div>
+      <div class="policy">
+        <h2>Information we collect</h2><p>When you request a quote or contact us, we collect the information you provide, such as your name, phone number, email address, address, ZIP code and details about the coverage you're interested in.</p>
+        <h2>How we use it</h2><ul><li>To prepare and send insurance quotes you request</li><li>To contact you about your request by phone, text or email, as you've agreed</li><li>To share with insurance carriers as needed to obtain quotes for you</li></ul>
+        <h2>What we don't do</h2><p>We do not sell your personal information. We do not ask for Social Security numbers or financial account numbers through this website.</p>
+        <h2>Your choices</h2><p>You can opt out of text messages at any time by replying STOP, and ask us to update or delete your information by contacting us.</p>
+        <h2>Contact</h2><p>Questions about this policy? Email <span class="js-email">info@conwayguardian.com</span>.</p>
+      </div>
+    </div></section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a href="#" class="logo"><span class="mark"><svg class="ico"><use href="#i-shield"/></svg></span><span class="name">Conway Guardian<small>Insurance Group</small></span></a>
+        <p style="max-width:300px">Independent insurance agency proudly serving individuals, families, property owners and businesses in South Carolina.</p>
+      </div>
+      <div><h5>Coverage</h5><ul id="footCov"></ul></div>
+      <div><h5>Agency</h5><ul><li><a href="#about">About us</a></li><li><a href="#contact">Contact</a></li><li><a href="#quote">Get a quote</a></li><li><a href="#privacy">Privacy policy</a></li></ul></div>
+      <div><h5>Reach us</h5><ul><li><a href="#" class="js-tel"><span class="js-phone">803-768-0594</span></a></li><li class="js-email">info@conwayguardian.com</li><li class="js-hours">Mon–Fri 9am–6pm ET</li></ul></div>
+    </div>
+    <div class="legal">
+      <div>© <span id="yr"></span> Conway Guardian Insurance Group. All rights reserved. · <span class="js-license">License #[000000]</span></div>
+      <div>Coverage is subject to the terms, conditions and exclusions of the policy issued. Coverage, discounts and carrier availability vary. Quotes are not guaranteed, and submitting a quote request does not bind or approve coverage.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a href="#" class="btn btn-line js-tel" style="background:#fff">📞 Call Now</a>
+  <a href="#quote" class="btn btn-gold">Get a Quote</a>
+</div>
+
+<script>
+(function () {
+  /* ================================================================
+     ⚙️ AGENCY SETTINGS — edit these before launch
+     ================================================================ */
+  const AGENCY = {
+    name: "Conway Guardian Insurance Group",
+    phone: "803-768-0594",                 // placeholder
+    email: "info@conwayguardian.com",        // placeholder — where leads go is set in Formspree
+    hours: "Mon–Fri 9am–6pm ET",             // placeholder
+    license: "License #[000000]",            // placeholder
+  };
+  // Formspree form ID (https://formspree.io → New form → copy the ID from /f/XXXXXXXX).
+  // Leave empty for prototype mode: submissions show an on-screen preview of the email instead.
+  const QUOTE_FORM_ID = "";
+  const CONTACT_FORM_ID = "";
+
+  // EASIEST OPTION — no account needed: put the agency's email here (e.g. "leads@example.com").
+  // Submissions are delivered through FormSubmit.co. The very first submission sends an
+  // "Activate form" email to this address; click it once and every quote after that arrives.
+  const LEAD_EMAIL = "";
+  const endpointFor = (formId) => formId ? "https://formspree.io/f/" + formId : (LEAD_EMAIL ? "https://formsubmit.co/ajax/" + LEAD_EMAIL : "");
+
+  /* ================================================================
+     COVERAGE DATA
+     ================================================================ */
+  const COVERAGE = {
+    auto: {
+      title: "Auto Insurance", short: "Auto", blurb: "Cars, trucks, SUVs and the people who drive them.",
+      hero: "Explore auto insurance options designed to protect you, your vehicle, and your financial well-being while on the road.",
+      covers: [
+        ["Liability", "Injuries and damage you cause to others"],
+        ["Collision", "Repairs to your car after an accident"],
+        ["Comprehensive", "Theft, hail, fire, flooding and animal hits"],
+        ["Uninsured / underinsured motorist", "When the other driver can't pay"],
+        ["Medical payments / PIP", "Medical bills for you and passengers"],
+        ["Roadside & rental", "Towing, lockouts and a rental while yours is fixed"],
+      ],
+      who: ["Individuals & families", "New and teen drivers", "Multi-car households", "Drivers needing an SR-22", "Classic & collector cars", "Rideshare drivers"],
+      faq: [
+        ["What's the difference between liability and full coverage?", "Liability pays for damage you cause to other people and their property. “Full coverage” usually means liability plus collision and comprehensive, which also cover damage to your own vehicle."],
+        ["Can you help if I need an SR-22?", "Yes. Let us know in your quote request and we’ll look for carriers that can file it in South Carolina."],
+        ["How does adding a teen driver affect my policy?", "Carriers handle young drivers differently, and some offer good-student or driver-training discounts. Comparing carriers can help you see your options."],
+      ],
+    },
+    homeowners: {
+      title: "Homeowners Insurance", short: "Homeowners", blurb: "Your house, your belongings and your liability.",
+      hero: "Protect your home and personal belongings with homeowners insurance coverage tailored to your property and needs.",
+      covers: [
+        ["Dwelling", "The structure of your home"],
+        ["Other structures", "Fences, sheds and detached garages"],
+        ["Personal property", "Furniture, electronics, clothing and more"],
+        ["Personal liability", "If someone is hurt on your property"],
+        ["Loss of use", "Living expenses if you can't stay home"],
+        ["Optional add-ons", "Flood, earthquake, water backup, jewelry"],
+      ],
+      who: ["First-time home buyers", "Refinancing (lender needs proof)", "Condo owners (HO-6)", "Older or historic homes", "High-value homes", "Mobile & manufactured homes"],
+      faq: [
+        ["Is flood damage covered by homeowners insurance?", "Usually not. Flood typically needs a separate policy. We can quote it alongside your home coverage."],
+        ["How much dwelling coverage do I need?", "Enough to rebuild your home at today's construction costs — which can be very different from what you paid or its market value."],
+        ["I'm closing on a house soon. Can you help?", "Yes — include your closing date in your quote request so we can plan around it and help with what your lender needs."],
+      ],
+    },
+    renters: {
+      title: "Renters Insurance", short: "Renters", blurb: "Affordable protection for your stuff and liability.",
+      hero: "Protect your personal belongings and yourself against covered liability risks with affordable renters insurance options.",
+      covers: [
+        ["Personal belongings", "At home, in your car, even while traveling"],
+        ["Theft & vandalism", "Stolen or damaged property"],
+        ["Personal liability", "If a guest is hurt or you damage someone's property"],
+        ["Loss of use", "Hotel and meals if your place is unlivable"],
+      ],
+      who: ["Apartment renters", "Renting a house", "College students", "Landlord requires proof", "Roommates", "Pet owners"],
+      faq: [
+        ["Doesn't my landlord's insurance cover my things?", "No. A landlord's policy covers the building and their liability — not your personal belongings."],
+        ["Is renters insurance expensive?", "Renters insurance is often one of the more affordable types of coverage, and some carriers offer multi-policy discounts with auto."],
+        ["My landlord needs proof of insurance. Can you send it?", "Yes — once your policy is active we can send proof of coverage directly to your landlord or property manager."],
+      ],
+    },
+    landlord: {
+      title: "Landlord & Rental Property Insurance", short: "Landlord / Rental", blurb: "Coverage built for the properties you rent out.",
+      hero: "Protect your investment with insurance coverage designed for rental properties, landlords, and property owners.",
+      covers: [
+        ["Dwelling", "The rental building itself"],
+        ["Loss of rental income", "Lost rent while repairs are made after a covered loss"],
+        ["Landlord liability", "If a tenant or visitor is injured"],
+        ["Other structures", "Garages, fences and sheds"],
+        ["Vandalism & malicious mischief", "Damage caused intentionally"],
+        ["Landlord-owned contents", "Appliances and furnishings you provide"],
+      ],
+      who: ["Single-family rentals", "Duplexes & 2–4 units", "Apartment buildings", "Short-term rentals (Airbnb/VRBO)", "Vacant or renovating", "Growing portfolios"],
+      faq: [
+        ["Can I use my homeowners policy for a rental?", "Usually not. Most homeowners policies exclude or limit coverage once you rent the home out — you'll typically need a landlord (dwelling fire) policy."],
+        ["Do you insure short-term rentals like Airbnb?", "Yes. Short-term rentals have different risks, so let us know and we'll find carriers that cover them."],
+        ["Can you help with more than one rental property?", "Yes. Whether you own one rental or a growing portfolio in South Carolina, we can help you review coverage for each property through one agency."],
+      ],
+    },
+    business: {
+      title: "Commercial & Business Insurance", short: "Business", blurb: "Coverage for small businesses, contractors and more.",
+      hero: "Protect the business you’ve worked hard to build with commercial insurance solutions, including general liability coverage for small businesses and contractors.",
+      covers: [
+        ["General liability", "Customer injuries and property damage claims"],
+        ["Business owner's policy (BOP)", "Liability + property bundled, often at a lower cost"],
+        ["Commercial property", "Your building, equipment and inventory"],
+        ["Workers' compensation", "Employee injuries on the job"],
+        ["Commercial auto", "Vehicles used for your business"],
+        ["Professional liability (E&O)", "Claims of mistakes in your services"],
+        ["Cyber liability", "Data breaches and cyber attacks"],
+        ["Commercial umbrella", "Extra liability above your other policies"],
+      ],
+      who: ["Contractors & trades", "Retail shops", "Restaurants & food", "Offices & professionals", "Home-based businesses", "Startups & LLCs"],
+      faq: [
+        ["What does a BOP include?", "A business owner's policy typically combines general liability and commercial property coverage into one policy."],
+        ["Do I need workers' compensation?", "Requirements depend on factors like your number of employees and your industry. We'll help you understand what applies to your business in South Carolina."],
+        ["I need a certificate of insurance for a job. Can you help?", "Yes — once you're covered, we can issue certificates of insurance (COIs) for your clients."],
+      ],
+    },
+  };
+  /* ================================================================
+     QUOTE QUESTIONS — tailored per coverage type
+     h: group heading · short: label used in the agency email
+     multi: pick several · text/date: typed answer · optional: not required
+     ================================================================ */
+  const Q = {
+    auto: {
+      title: "Your vehicles & drivers",
+      intro: "A few details about your vehicles and drivers so we can compare options from multiple carriers.",
+      questions: [
+        { h: "Vehicles" },
+        { id: "vehicles", short: "Vehicles", label: "How many vehicles do you want to insure?", opts: ["1", "2", "3", "4", "5", "6"], vehicles: true },
+        { id: "use", short: "Vehicle use", label: "How are the vehicles used?", multi: true, opts: ["Commuting", "Pleasure / errands", "Business use", "Rideshare / delivery"] },
+        { h: "Drivers" },
+        { id: "drivers", short: "Drivers", label: "How many drivers in the household?", opts: ["1", "2", "3", "4+"] },
+        { id: "youngest", short: "Youngest driver", label: "Age of the youngest driver", opts: ["Under 21", "21–24", "25–64", "65+"] },
+        { id: "incidents", short: "Accidents / tickets (3 yrs)", label: "Any accidents or tickets in the last 3 years?", opts: ["None", "1", "2 or more"] },
+        { id: "sr22", short: "SR-22 needed", label: "Does anyone need an SR-22?", opts: ["No", "Yes", "Not sure"] },
+        { h: "Current coverage" },
+        { id: "insured", short: "Currently insured", label: "Do you have auto insurance now?", opts: ["Yes", "No", "Lapsed recently"] },
+        { id: "carrier", short: "Current carrier", label: "Current insurance company", text: true, optional: true, placeholder: "e.g. Progressive" },
+      ],
+    },
+    homeowners: {
+      title: "About your home",
+      intro: "Tell us about the property so we can review coverage options that fit your home.",
+      questions: [
+        { h: "Property address · South Carolina" },
+        { id: "street", short: "Street address", label: "Property street address", text: true, optional: true, placeholder: "123 Main St", half: true },
+        { id: "city", short: "City", label: "City", text: true, optional: true, placeholder: "e.g. Columbia", half: true },
+        { id: "state", short: "State", label: "State", fixed: "South Carolina (SC)", half: true },
+        { id: "zip", short: "ZIP", label: "Property ZIP code", zip: true, half: true },
+        { h: "The property" },
+        { id: "status", short: "Status", label: "Which describes you?", opts: ["I own the home", "I'm buying", "Refinancing"] },
+        { id: "closing", short: "Closing date", label: "Closing date (if buying)", date: true, optional: true },
+        { id: "type", short: "Home type", label: "Type of home", opts: ["Single-family", "Condo", "Townhouse", "Mobile / manufactured"] },
+        { id: "occupancy", short: "Occupancy", label: "How is the home used?", opts: ["Primary residence", "Second / vacation home"] },
+        { h: "Construction" },
+        { id: "built", short: "Year built", label: "About when was it built?", opts: ["Before 1960", "1960–1989", "1990–2009", "2010 or newer", "Not sure"] },
+        { id: "sqft", short: "Square feet", label: "Approximate square footage", opts: ["Under 1,500", "1,500–2,500", "2,500–4,000", "4,000+", "Not sure"] },
+        { id: "construction", short: "Construction", label: "Exterior construction", opts: ["Wood / frame", "Brick / masonry", "Stucco", "Siding", "Not sure"] },
+        { id: "roof", short: "Roof age", label: "How old is the roof?", opts: ["Under 5 years", "5–10 years", "10–20 years", "20+ years", "Not sure"] },
+        { h: "Property details" },
+        { id: "safety", short: "Safety features", label: "Safety features", multi: true, optional: true, opts: ["Monitored alarm", "Smoke / fire alarms", "Sprinklers", "Deadbolts", "Water leak sensors", "Gated community"] },
+        { id: "liability", short: "On the property", label: "Anything on the property?", multi: true, optional: true, opts: ["Pool", "Trampoline", "Dog", "Wood stove", "None of these"] },
+        { id: "claims", short: "Claims (5 yrs)", label: "Home insurance claims in the last 5 years?", opts: ["None", "1", "2 or more"] },
+        { id: "insured", short: "Currently insured", label: "Is it currently insured?", opts: ["Yes", "No", "Not yet (buying)"] },
+      ],
+    },
+    renters: {
+      title: "About your rental",
+      intro: "Just a few questions about your place and your belongings.",
+      questions: [
+        { h: "Rental address · South Carolina" },
+        { id: "street", short: "Street address", label: "Street address", text: true, optional: true, placeholder: "123 Main St, Apt 4", half: true },
+        { id: "city", short: "City", label: "City", text: true, optional: true, placeholder: "e.g. Greenville", half: true },
+        { id: "state", short: "State", label: "State", fixed: "South Carolina (SC)", half: true },
+        { id: "zip", short: "ZIP", label: "ZIP code", zip: true, half: true },
+        { h: "Your place" },
+        { id: "residence", short: "Residence", label: "What do you rent?", opts: ["Apartment", "House", "Condo / townhouse", "Room in a home"] },
+        { id: "household", short: "Who lives there", label: "Who lives with you?", opts: ["Just me", "Spouse / partner", "Family", "Roommates"] },
+        { id: "start", short: "Coverage start", label: "When do you need coverage to start?", opts: ["As soon as possible", "Within 30 days", "Later — I'm moving"] },
+        { id: "required", short: "Landlord requires proof", label: "Does your landlord require proof of insurance?", opts: ["Yes", "No", "Not sure"] },
+        { h: "Your belongings" },
+        { id: "belongings", short: "Belongings value", label: "Roughly what are your belongings worth?", opts: ["Under $15k", "$15k–$30k", "$30k–$50k", "$50k+", "Not sure"] },
+        { id: "valuables", short: "High-value items", label: "Any high-value items?", multi: true, optional: true, opts: ["Jewelry", "Electronics / cameras", "Bikes / e-bikes", "Musical instruments", "Collectibles / art"] },
+        { id: "pets", short: "Pets", label: "Any pets?", multi: true, opts: ["No pets", "Dog", "Cat", "Other"] },
+      ],
+    },
+    landlord: {
+      title: "About your rental properties",
+      intro: "Details about your rental properties help us review coverage designed for landlords and property owners.",
+      questions: [
+        { h: "Property location · South Carolina" },
+        { id: "street", short: "Property address(es)", label: "Property address(es)", text: true, placeholder: "e.g. 12 Oak St, Columbia; 45 Pine Ave, Lexington", full: true },
+        { id: "state", short: "State", label: "State", fixed: "South Carolina (SC)", half: true },
+        { id: "zip", short: "ZIP", label: "ZIP code (main property)", zip: true, half: true },
+        { h: "Your portfolio" },
+        { id: "count", short: "Properties", label: "How many rental properties?", opts: ["1", "2–4", "5–10", "11+"] },
+        { id: "units", short: "Total units", label: "Total number of rental units", opts: ["1", "2–4", "5–10", "11–25", "26+"] },
+        { id: "type", short: "Property types", label: "What type of properties?", multi: true, opts: ["Single-family", "Duplex / 2–4 units", "5+ unit building", "Condo", "Mixed-use"] },
+        { h: "How you rent" },
+        { id: "rentalType", short: "Rental type", label: "Type of rentals", opts: ["Long-term leases", "Short-term (Airbnb / VRBO)", "Mix of both"] },
+        { id: "occupancy", short: "Occupancy", label: "Current occupancy", opts: ["Fully rented", "Partly vacant", "Vacant", "Under renovation"] },
+        { id: "managed", short: "Managed by", label: "Who manages the properties?", opts: ["I self-manage", "Property manager"] },
+        { id: "built", short: "Year built", label: "About when were they built?", opts: ["Before 1960", "1960–1989", "1990–2009", "2010 or newer", "Mixed"] },
+        { h: "Current coverage" },
+        { id: "insured", short: "Currently insured", label: "Are the properties insured now?", opts: ["Yes, all", "Some of them", "No"] },
+        { id: "claims", short: "Claims (5 yrs)", label: "Claims in the last 5 years?", opts: ["None", "1", "2 or more"] },
+        { id: "wanted", short: "Coverage interests", label: "Anything specific you'd like to discuss?", multi: true, optional: true, opts: ["Building / dwelling", "Loss of rental income", "Landlord liability", "Vacant property"] },
+      ],
+    },
+    business: {
+      title: "About your business",
+      intro: "Tell us about your business so we can explore commercial insurance options that fit.",
+      questions: [
+        { h: "Your business" },
+        { id: "name", short: "Business name", label: "Business name", text: true, placeholder: "e.g. Smith Roofing LLC", half: true },
+        { id: "industry", short: "What they do", label: "What does the business do?", text: true, placeholder: "e.g. roofing, coffee shop, consulting", half: true },
+        { id: "years", short: "Years in business", label: "How long in business?", opts: ["Just starting", "Under 3 years", "3–10 years", "10+ years"] },
+        { id: "location", short: "Operates from", label: "Where do you operate?", multi: true, opts: ["Home-based", "Office", "Retail storefront", "Warehouse / shop", "Job sites / on the road"] },
+        { h: "Business address · South Carolina" },
+        { id: "street", short: "Street address", label: "Business street address", text: true, optional: true, placeholder: "123 Main St", half: true },
+        { id: "city", short: "City", label: "City", text: true, optional: true, placeholder: "e.g. Charleston", half: true },
+        { id: "state", short: "State", label: "State", fixed: "South Carolina (SC)", half: true },
+        { id: "zip", short: "ZIP", label: "ZIP code", zip: true, half: true },
+        { h: "Size" },
+        { id: "employees", short: "Employees", label: "How many employees (besides you)?", opts: ["None", "1–5", "6–20", "21–50", "51+"] },
+        { id: "revenue", short: "Annual revenue", label: "Approximate annual revenue", opts: ["Under $100k", "$100k–$500k", "$500k–$1M", "$1M–$5M", "$5M+", "Prefer not to say"] },
+        { id: "vehicles", short: "Business vehicles", label: "Vehicles used for the business", opts: ["None", "1–2", "3–10", "11+"] },
+        { h: "Coverage" },
+        { id: "coi", short: "Needs a COI", label: "Do you need a certificate of insurance for a client or contract?", opts: ["Yes", "No", "Not yet"] },
+        { id: "insured", short: "Currently insured", label: "Currently insured?", opts: ["Yes", "No", "Some coverage"] },
+        { id: "needs", short: "Coverage interests", label: "Any coverage you already know you want?", multi: true, optional: true, opts: ["General liability", "Business owner's policy (BOP)", "Workers' comp", "Commercial auto", "Commercial property", "Professional liability (E&O)", "Not sure — advise me"] },
+      ],
+    },
+  };
+  const CARD = {"auto": "Explore auto insurance options designed to protect you, your vehicle, and your financial well-being while on the road.", "homeowners": "Protect your home and personal belongings with homeowners insurance coverage tailored to your property and needs.", "renters": "Protect your personal belongings and yourself against covered liability risks with affordable renters insurance options.", "landlord": "Protect your investment with insurance coverage designed for rental properties, landlords, and property owners.", "business": "Protect the business you’ve worked hard to build with commercial insurance solutions, including general liability coverage for small businesses and contractors."};
+  Object.keys(CARD).forEach(k => COVERAGE[k].card = CARD[k]);
+  const CARD_TITLE = { auto: "Auto Insurance", homeowners: "Homeowners Insurance", renters: "Renters Insurance", landlord: "Landlord / Rental Property Insurance", business: "Business Insurance" };
+  Object.keys(CARD_TITLE).forEach(k => COVERAGE[k].cardTitle = CARD_TITLE[k]);
+  Object.keys(Q).forEach(k => { COVERAGE[k].questions = Q[k].questions; COVERAGE[k].intro = Q[k].intro; COVERAGE[k].stepTitle = Q[k].title; });
+  const KEYS = Object.keys(COVERAGE);
+  const STATES = ["AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"];
+
+  /* ================================================================
+     HELPERS
+     ================================================================ */
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const icon = (k, cls = "ico") => '<svg class="' + cls + '"><use href="#i-' + k + '"/></svg>';
+  const digits = (s) => s.replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "");
+  const emailOk = (s) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+  const telHref = () => "tel:" + AGENCY.phone.replace(/[^\d+]/g, "");
+
+  function formatPhone(el) {
+    el.addEventListener("input", (e) => {
+      if (e.inputType && e.inputType.startsWith("delete")) return;
+      let d = digits(el.value).slice(0, 10), o = d;
+      if (d.length > 6) o = "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
+      else if (d.length > 3) o = "(" + d.slice(0, 3) + ") " + d.slice(3);
+      else if (d.length) o = "(" + d;
+      el.value = o;
+    });
+  }
+
+  /* ================================================================
+     BUILD STATIC PIECES
+     ================================================================ */
+  $$(".js-phone").forEach(e => e.textContent = AGENCY.phone);
+  $$(".js-email").forEach(e => e.textContent = AGENCY.email);
+  $$(".js-hours").forEach(e => e.textContent = AGENCY.hours);
+  $$(".js-license").forEach(e => e.textContent = AGENCY.license);
+  $$(".js-tel").forEach(a => a.href = telHref());
+  $("#yr").textContent = new Date().getFullYear();
+
+  $("#covMenu").innerHTML = '<div class="dd-title">Get a quote</div>' + KEYS.map(k =>
+    '<a href="#quote" data-pre="' + k + '"><span class="ic">' + icon(k) + '</span><span><b>' + esc(COVERAGE[k].cardTitle) + '</b><span>Start your ' + esc(COVERAGE[k].short.toLowerCase()) + " quote →</span></span></a>").join("");
+
+  $("#mobileLinks").innerHTML =
+    '<a href="#">Home</a><a href="#" class="js-tel" style="color:var(--navy)">📞 Call Now · ' + esc(AGENCY.phone) + '</a><div class="grp">Get a quote</div>' +
+    KEYS.map(k => '<a href="#quote" data-pre="' + k + '">' + icon(k) + esc(COVERAGE[k].cardTitle) + ' <span style="margin-left:auto;font-size:13px;color:var(--muted)">Quote →</span></a>').join("") +
+    '<div class="grp">Agency</div><a href="#about">About</a><a href="#contact">Contact</a>' +
+    '<a href="#quote" class="btn btn-gold btn-lg">Get a Quote</a>';
+
+  $("#homeCards").innerHTML = KEYS.map(k =>
+    '<div class="card"><div class="ic">' + icon(k) + "</div><h3>" + esc(COVERAGE[k].cardTitle) + "</h3><p>" + esc(COVERAGE[k].card) + "</p>" +
+    '<div class="card-actions"><a href="#quote" class="btn btn-navy" data-pre="' + k + '">Get a quote</a><a href="#' + k + '" class="more">Learn more →</a></div></div>').join("");
+
+  $("#footCov").innerHTML = KEYS.map(k => '<li><a href="#' + k + '">' + esc(COVERAGE[k].title) + "</a></li>").join("");
+
+  $("#quickOpts").innerHTML = KEYS.map(k =>
+    '<label class="qopt"><input type="checkbox" value="' + k + '" /><span class="ic">' + icon(k) + "</span>" + esc(COVERAGE[k].short) + '<span class="box"></span></label>').join("");
+
+  $("#covGrid").innerHTML = KEYS.map(k =>
+    '<label class="cov-opt"><input type="checkbox" name="cov" value="' + k + '" /><span class="ic">' + icon(k) + "</span><span><b>" + esc(COVERAGE[k].short) + "</b><small>" + esc(COVERAGE[k].blurb) + '</small></span><span class="box"></span></label>').join("");
+
+  const pad2 = (n) => String(n).padStart(2, "0"), td = new Date(), todayStr = td.getFullYear() + "-" + pad2(td.getMonth() + 1) + "-" + pad2(td.getDate());
+
+  // One wizard step per coverage type
+  function qHTML(name, q) {
+    let inner, cls = "q";
+    if (q.fixed) {
+      return '<div class="q"><div class="q-label">' + esc(q.label) + '</div><div class="fixed-field">' + esc(q.fixed) + '<span>Serving South Carolina</span></div></div>';
+    }
+    if (q.text || q.date || q.zip) {
+      const extra = q.zip ? ' inputmode="numeric" maxlength="5" class="zip-in"' : (q.maxlength ? ' maxlength="' + q.maxlength + '"' : "") + (q.numeric ? ' inputmode="numeric"' : "") + (q.upper ? ' style="text-transform:uppercase"' : "");
+      inner = '<div class="field" style="margin:0"><input id="' + name + '" name="' + name + '" type="' + (q.date ? "date" : "text") + '" placeholder="' + esc(q.placeholder || (q.zip ? "e.g. 29201" : "")) + '"' + extra + ' /></div>';
+    } else if (q.select) {
+      inner = '<div class="field" style="margin:0"><select id="' + name + '" name="' + name + '"><option value="">Select…</option>' + q.select.map(o => "<option>" + esc(o) + "</option>").join("") + "</select></div>";
+    } else {
+      inner = '<div class="chips">' + q.opts.map(o =>
+        '<label class="chip"><input type="' + (q.multi ? "checkbox" : "radio") + '" name="' + name + '" value="' + esc(o) + '" />' + (q.multi ? '<span class="box"></span>' : "") + esc(o) + "</label>").join("") + "</div>";
+    }
+    return '<div class="' + cls + '" data-q="' + name + '"' + (q.optional ? "" : ' data-req="1"') + (q.text || q.date || q.zip || q.select ? ' data-text="1"' : "") + (q.zip ? ' data-zip="1"' : "") + ">" +
+      '<div class="q-label">' + esc(q.label) + (q.optional ? ' <span class="opt">(optional)</span>' : "") + (q.multi ? ' <span class="opt">— pick all that apply</span>' : "") + "</div>" +
+      inner + '<div class="err-msg">' + (q.zip ? "Enter a 5-digit ZIP code." : "Please answer this one.") + "</div></div>";
+  }
+  function wrapGrid(items) {
+    // items: [{html, grid}] → wrap consecutive grid items in a 2-column grid
+    let out = "", open = false;
+    items.forEach(it => {
+      if (it.grid && !open) { out += '<div class="qgrid">'; open = true; }
+      if (!it.grid && open) { out += "</div>"; open = false; }
+      out += it.grid === "full" ? it.html.replace('<div class="q"', '<div class="q full"') : it.html;
+    });
+    if (open) out += "</div>";
+    return out;
+  }
+  $("#typeSteps").innerHTML = KEYS.map(k => {
+    const c = COVERAGE[k];
+    const items = c.questions.map(q => {
+      if (q.h) return { html: '<div class="q-group">' + esc(q.h) + "</div>" };
+      let html = qHTML(k + "_" + q.id, q);
+      if (q.vehicles) html += '<div id="vehicleBlocks"></div>';
+      return { html, grid: q.full ? "full" : q.half ? "half" : null };
+    });
+    return '<section class="wstep" data-key="' + k + '" data-name="' + esc(c.short) + '">' +
+      '<span class="tag">' + icon(k) + esc(c.title) + "</span>" +
+      "<h2>" + esc(c.stepTitle) + "</h2>" +
+      '<p class="sub">' + esc(c.intro) + ' Best guesses are fine.</p>' +
+      '<div class="step-err">Please answer the highlighted questions.</div>' +
+      wrapGrid(items) + "</section>";
+  }).join("");
+
+  /* ---------- Auto: one detail block per vehicle ---------- */
+  const OWN = ["Paid Off", "Financed", "Leased"];
+  function vehicleBlock(i) {
+    const n = "auto_v" + i + "_";
+    return '<div class="vblock" data-v="' + i + '"><div class="vhead">' + icon("auto") + "Vehicle " + i + "</div>" +
+      '<div class="qgrid three">' +
+        qHTML(n + "year", { label: "Year", text: true, placeholder: "e.g. 2019", maxlength: 4, numeric: true }) +
+        qHTML(n + "make", { label: "Make", text: true, placeholder: "e.g. Honda" }) +
+        qHTML(n + "model", { label: "Model", text: true, placeholder: "e.g. CR-V" }) +
+      "</div>" +
+      qHTML(n + "vin", { label: "VIN", text: true, optional: true, placeholder: "17-character vehicle ID number", maxlength: 17, upper: true }) +
+      qHTML(n + "own", { label: "Is this vehicle paid off, financed, or leased?", opts: OWN }) +
+      '<div class="lender" id="' + n + 'lender">' +
+        '<div class="lender-title">Finance / leasing company <span class="opt">(optional — any state)</span></div>' +
+        qHTML(n + "lname", { label: "Company name", text: true, optional: true, placeholder: "e.g. Ally Financial" }) +
+        qHTML(n + "laddr", { label: "Mailing address", text: true, optional: true, placeholder: "PO Box or street" }) +
+        '<div class="qgrid three">' +
+          qHTML(n + "lcity", { label: "City", text: true, optional: true }) +
+          qHTML(n + "lstate", { label: "State", select: STATES, optional: true }) +
+          qHTML(n + "lzip", { label: "ZIP", text: true, optional: true, maxlength: 5, numeric: true }) +
+        "</div>" +
+      "</div></div>";
+  }
+  function renderVehicles() {
+    const box = $("#vehicleBlocks");
+    const n = parseInt(answerOf("auto_vehicles"), 10) || 0;
+    const have = $$(".vblock", box);
+    for (let i = have.length + 1; i <= n; i++) box.insertAdjacentHTML("beforeend", vehicleBlock(i));
+    $$(".vblock", box).forEach(b => { if (+b.dataset.v > n) b.remove(); });
+  }
+  document.addEventListener("change", (e) => {
+    if (e.target.name === "auto_vehicles") renderVehicles();
+    const m = e.target.name && e.target.name.match(/^auto_v(\d+)_own$/);
+    if (m) $("#auto_v" + m[1] + "_lender").classList.toggle("show", e.target.value !== "Paid Off");
+  });
+  $$('#typeSteps input[type="date"]').forEach(i => i.min = todayStr);
+
+  /* ================================================================
+     COVERAGE DETAIL PAGE
+     ================================================================ */
+  function renderCoverage(k) {
+    const c = COVERAGE[k];
+    $("#coverageView").innerHTML =
+      '<section class="page-hero"><div class="wrap">' +
+        '<div class="crumbs"><a href="#">Home</a> / Coverage / ' + esc(c.short) + "</div>" +
+        '<div class="row"><div class="bigic">' + icon(k) + "</div><div>" +
+          "<h1>" + esc(c.title) + "</h1><p>" + esc(c.hero) + "</p>" +
+          '<div style="display:flex;gap:12px;flex-wrap:wrap"><a href="#quote" class="btn btn-gold btn-lg" data-pre="' + k + '">Get a ' + esc(c.short.toLowerCase()) + ' quote →</a>' +
+          '<a href="' + telHref() + '" class="btn btn-ghost-w btn-lg">' + icon("phone", "ico") + esc(AGENCY.phone) + "</a></div>" +
+        "</div></div></div></section>" +
+      '<section class="band"><div class="wrap detail"><div>' +
+        "<h2>What it can cover</h2>" +
+        '<div class="covers">' + c.covers.map(x => "<div><b>" + esc(x[0]) + "</b><span>" + esc(x[1]) + "</span></div>").join("") + "</div>" +
+        "<h2>Who it's for</h2>" +
+        '<div class="who">' + c.who.map(w => "<span>" + esc(w) + "</span>").join("") + "</div>" +
+        "<h2>Questions we hear a lot</h2>" +
+        '<div class="faq">' + c.faq.map(f => "<details><summary>" + esc(f[0]) + "</summary><p>" + esc(f[1]) + "</p></details>").join("") + "</div>" +
+        '<p style="color:var(--muted);font-size:13px;margin-top:18px">Coverage options vary by carrier. Your agent will explain exactly what your policy includes.</p>' +
+      "</div>" +
+      '<aside class="side"><h3>Get your ' + esc(c.short.toLowerCase()) + " quote</h3>" +
+        "<p>About 2 minutes. We'll compare carriers and get back to you — usually within one business day.</p>" +
+        '<a href="#quote" class="btn btn-gold btn-lg" data-pre="' + k + '">Start my quote →</a>' +
+        '<a href="' + telHref() + '" class="btn btn-line">Or call ' + esc(AGENCY.phone) + "</a>" +
+        "<ul><li>Free & no obligation</li><li>Multiple carriers compared</li><li>No SSN needed to start</li></ul></aside>" +
+      "</div>" +
+      '<div class="wrap also"><h2 style="font-size:24px">Other coverage we offer</h2><div class="cards">' +
+        KEYS.filter(x => x !== k).map(x => '<a class="card" href="#' + x + '"><div class="ic">' + icon(x) + "</div><h3>" + esc(COVERAGE[x].short) + "</h3><p>" + esc(COVERAGE[x].blurb) + '</p><span class="more">Learn more →</span></a>').join("") +
+      "</div></div></section>" +
+      '<section class="cta-band"><div class="wrap"><h2>Let us shop your ' + esc(c.short.toLowerCase()) + " coverage</h2><p>Free quote, multiple carriers, one agent who has your back.</p>" +
+      '<div class="row"><a href="#quote" class="btn btn-gold btn-lg" data-pre="' + k + '">Get my free quote →</a></div></div></section>';
+  }
+
+  /* ================================================================
+     ROUTER (hash-based: #auto, #about, #quote …)
+     ================================================================ */
+  let pendingPre = null, fromQuick = false;
+
+  function route() {
+    const h = location.hash.replace(/^#/, "");
+    let view = "";
+    if (KEYS.includes(h)) { view = "coverage"; renderCoverage(h); }
+    else if (["about", "contact", "quote", "privacy"].includes(h)) view = h;
+
+    $$(".view").forEach(v => v.classList.toggle("on", v.dataset.view === view));
+    $$("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === view));
+    $("#covDD").classList.toggle("on", view === "coverage");
+    document.body.classList.toggle("in-quote", view === "quote");
+    closeMenus();
+
+    if (view === "quote") enterQuote();
+
+    const t = { "": "Auto, Home, Renters, Landlord & Business Insurance", coverage: (COVERAGE[h] || {}).title, about: "About", contact: "Contact", quote: "Get a Quote", privacy: "Privacy Policy" }[view];
+    document.title = "Conway Guardian Insurance Group — " + t;
+    window.scrollTo(0, 0);
+  }
+
+  // Remember which coverage a "Get a quote" button was for
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("[data-pre]");
+    if (!a) return;
+    pendingPre = a.dataset.pre.split(",");
+    if (location.hash === "#quote") { e.preventDefault(); route(); }
+  });
+
+  /* Menus */
+  const dd = $("#covDD"), ddBtn = $("#covDD > button");
+  ddBtn.addEventListener("click", (e) => { e.stopPropagation(); const o = dd.classList.toggle("open"); ddBtn.setAttribute("aria-expanded", o); });
+  document.addEventListener("click", (e) => { if (!e.target.closest("#covDD")) dd.classList.remove("open"); });
+  $("#burger").addEventListener("click", () => { $("#mobileNav").classList.add("open"); document.body.style.overflow = "hidden"; });
+  $("#closeNav").addEventListener("click", closeMenus);
+  $("#mobileNav").addEventListener("click", (e) => { if (e.target.closest("a")) closeMenus(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenus(); });
+  function closeMenus() { dd.classList.remove("open"); ddBtn.setAttribute("aria-expanded", "false"); $("#mobileNav").classList.remove("open"); document.body.style.overflow = ""; }
+
+  /* Hero quick-start */
+  $("#quickForm").addEventListener("submit", (e) => e.preventDefault());
+  $("#quickGo").addEventListener("click", () => {
+    const picked = $$("#quickOpts input:checked").map(i => i.value);
+    pendingPre = picked; fromQuick = picked.length > 0;
+    if (location.hash === "#quote") route(); else location.hash = "quote";
+  });
+  $("#quickOpts").addEventListener("change", () => $("#quickErr").classList.remove("show"));
+
+  /* ================================================================
+     QUOTE WIZARD
+     ================================================================ */
+  const form = $("#quoteForm");
+  let seq = ["coverage", "about", "contact", "review"];
+  let cur = 0;
+
+  const stepEl = (key) => $('.wstep[data-key="' + key + '"]', form);
+  const selected = () => $$('input[name="cov"]:checked', form).map(i => i.value);
+
+  function buildSeq() { seq = ["coverage", ...selected(), "about", "contact", "review"]; }
+
+  function enterQuote() {
+    if (!$("#quoteDone").hidden) { // start fresh after a finished request
+      form.reset(); cur = 0; updateBundle(); $("#vehicleBlocks").innerHTML = "";
+      $$(".bad", form).forEach(x => x.classList.remove("bad"));
+      $$(".step-err", form).forEach(x => x.classList.remove("show"));
+      const sb = $("#sendBtn"); sb.disabled = false; sb.textContent = "Send my quote request →";
+      $("#quoteDone").hidden = true; form.hidden = false;
+    }
+    if (pendingPre && pendingPre.length) {
+      // A category link or "Get a quote" button opens that coverage's form directly.
+      // Answers already typed are kept; only the coverage selection changes.
+      $$('input[name="cov"]', form).forEach(i => { i.checked = pendingPre.includes(i.value); });
+      updateBundle();
+      $(".step-err", stepEl("coverage")).classList.remove("show");
+      buildSeq(); cur = 1;
+      pendingPre = null;
+    }
+    fromQuick = false;
+    showStep();
+  }
+
+  function showStep() {
+    buildSeq();
+    if (cur >= seq.length) cur = seq.length - 1;
+    const key = seq[cur];
+    $$(".wstep", form).forEach(s => s.classList.toggle("on", s.dataset.key === key));
+    $("#wizName").textContent = stepEl(key).dataset.name;
+    $("#wizCount").textContent = "Step " + (cur + 1) + " of " + seq.length;
+    $("#wizBar").style.width = Math.round(((cur + 1) / seq.length) * 100) + "%";
+    $("#wizBack").style.visibility = cur === 0 ? "hidden" : "visible";
+    const last = key === "review";
+    $("#wizNext").style.display = last ? "none" : "";
+    $("#wizNext").textContent = seq[cur + 1] === "review" ? "Review →" : "Continue →";
+    if (last) buildReview();
+  }
+
+  function answerOf(name, multi) {
+    const inputs = $$('[name="' + name + '"]', form);
+    if (!inputs.length) return multi ? [] : "";
+    if (inputs[0].tagName === "SELECT" || inputs[0].type === "text" || inputs[0].tagName === "INPUT" && inputs[0].type !== "radio" && inputs[0].type !== "checkbox") return inputs[0].value.trim();
+    const v = inputs.filter(i => i.checked).map(i => i.value);
+    return inputs[0].type === "checkbox" ? v : (v[0] || "");
+  }
+
+  function validateStep(key) {
+    const s = stepEl(key);
+    let ok = true;
+    const mark = (el, bad) => { el.classList.toggle("bad", bad); if (bad) ok = false; };
+
+    if (key === "coverage") { ok = selected().length > 0; }
+    else if (KEYS.includes(key) || key === "about") {
+      $$(".q[data-req]", s).forEach(q => {
+        const name = q.dataset.q;
+        const v = q.dataset.text ? $("#" + name).value.trim() : $$('[name="' + name + '"]:checked', s).length;
+        mark(q, !v || (q.dataset.zip && !/^\d{5}$/.test(v)));
+      });
+      if (key === "about") {
+        mark($("#zip-f"), !/^\d{5}$/.test($("#zip").value.trim()));
+      }
+    } else if (key === "contact") {
+      mark($("#first-f"), !$("#first").value.trim());
+      mark($("#last-f"), !$("#last").value.trim());
+      mark($("#phone-f"), digits($("#phone").value).length !== 10);
+      mark($("#email-f"), !emailOk($("#email").value.trim()));
+      mark($("#consent-f"), !$("#consent").checked);
+    }
+    const err = $(".step-err", s);
+    if (err) err.classList.toggle("show", !ok);
+    if (!ok) {
+      const first = $(".bad", s) || err;
+      if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+      const inp = first && first.querySelector && first.querySelector("input, select");
+      if (inp && inp.type !== "radio" && inp.type !== "checkbox") inp.focus({ preventScroll: true });
+    }
+    return ok;
+  }
+
+  function next() {
+    if (!validateStep(seq[cur])) return;
+    cur++;
+    showStep();
+    $("#quotePanel").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  function back() { cur = Math.max(0, cur - 1); showStep(); $("#quotePanel").scrollIntoView({ behavior: "smooth", block: "start" }); }
+
+  $("#wizNext").addEventListener("click", next);
+  $("#wizBack").addEventListener("click", back);
+
+  // Clear errors as people fix them
+  form.addEventListener("change", (e) => {
+    const q = e.target.closest(".q.bad, .field.bad, .consent.bad");
+    if (q) q.classList.remove("bad");
+    if (e.target.name === "cov") { updateBundle(); const er = $(".step-err", stepEl("coverage")); if (selected().length) er.classList.remove("show"); }
+  });
+  form.addEventListener("input", (e) => { const f = e.target.closest(".field.bad"); if (f && e.target.value.trim()) f.classList.remove("bad"); });
+  form.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && e.target.tagName !== "TEXTAREA" && e.target.tagName !== "BUTTON" && seq[cur] !== "review") { e.preventDefault(); next(); }
+  });
+  function updateBundle() { $("#bundleNote").classList.toggle("show", selected().length > 1); }
+
+  formatPhone($("#phone"));
+  formatPhone($("#cf-phone"));
+  document.addEventListener("input", (e) => {
+    const t = e.target;
+    if (t.id === "zip" || (t.getAttribute && t.getAttribute("inputmode") === "numeric" && t.maxLength > 0)) t.value = t.value.replace(/\D/g, "").slice(0, t.maxLength > 0 ? t.maxLength : 5);
+  });
+
+  /* ---------- Collect everything into labeled sections ---------- */
+  function collectSections() {
+    const sections = [];
+    sections.push({ key: "coverage", title: "Coverage requested", rows: [["Lines", selected().map(k => COVERAGE[k].short).join(", ")]] });
+    selected().forEach(k => {
+      const c = COVERAGE[k];
+      sections.push({
+        key: k, title: c.title,
+        rows: c.questions.filter(q => !q.h).flatMap(q => {
+          if (q.fixed) return [[q.short, "SC"]];
+          let v = answerOf(k + "_" + q.id, q.multi);
+          if (Array.isArray(v)) v = v.join(", ");
+          if (q.date && v) { const [y, m, d] = v.split("-"); v = m + "/" + d + "/" + y; }
+          const row = v || q.optional ? [q.short || q.label, v] : [q.short || q.label, "—"];
+          if (!q.vehicles) return [row];
+          const rows = [row];
+          for (let i = 1; i <= (parseInt(v, 10) || 0); i++) {
+            const g = (f) => { const el = $("#auto_v" + i + "_" + f); return el ? el.value.trim() : ""; };
+            const own = answerOf("auto_v" + i + "_own");
+            rows.push(["Vehicle " + i, [g("year"), g("make"), g("model")].filter(Boolean).join(" ")]);
+            if (g("vin")) rows.push(["Vehicle " + i + " VIN", g("vin").toUpperCase()]);
+            rows.push(["Vehicle " + i + " ownership", own || "—"]);
+            if (own && own !== "Paid Off") {
+              const lender = [g("lname"), g("laddr"), [g("lcity"), g("lstate")].filter(Boolean).join(", ") + (g("lzip") ? " " + g("lzip") : "")].filter(x => x && x.trim()).join(", ");
+              if (lender) rows.push(["Vehicle " + i + " " + (own === "Leased" ? "leasing co." : "lender"), lender]);
+            }
+          }
+          return rows;
+        }).filter(r => r[1]),
+      });
+    });
+    sections.push({ key: "about", title: "Location & preferences", rows: [
+      ["Address", [$("#street").value.trim(), $("#city").value.trim()].filter(Boolean).join(", ") || "—"],
+      ["State / ZIP", "SC " + $("#zip").value.trim()],
+      ["Contact by", answerOf("contactPref") || "—"],
+      ["Best time", answerOf("bestTime") || "Any"],
+    ] });
+    const contactRows = [
+      ["Name", $("#first").value.trim() + " " + $("#last").value.trim()],
+      ["Phone", $("#phone").value.trim()],
+      ["Email", $("#email").value.trim()],
+    ];
+    if ($("#notes").value.trim()) contactRows.push(["Notes", $("#notes").value.trim()]);
+    contactRows.push(["Consent to contact", $("#consent").checked ? "Yes — agreed to calls, texts & email" : "No"]);
+    sections.push({ key: "contact", title: "Contact", rows: contactRows });
+    return sections;
+  }
+
+  function buildReview() {
+    $("#reviewBox").innerHTML = collectSections().map(s =>
+      '<div class="rv-sec"><div class="hd"><b>' + esc(s.title) + '</b><button type="button" class="edit" data-edit="' + s.key + '">Edit</button></div><dl>' +
+      s.rows.map(r => "<dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd>").join("") + "</dl></div>").join("");
+  }
+  $("#reviewBox").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-edit]");
+    if (!b) return;
+    cur = seq.indexOf(b.dataset.edit);
+    showStep();
+    $("#quotePanel").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  /* ---------- Submit ---------- */
+  form.addEventListener("submit", (e) => e.preventDefault());
+  $("#sendBtn").addEventListener("click", submitQuote);
+  async function submitQuote() {
+    for (let i = 0; i < seq.length - 1; i++) { if (!validateStep(seq[i])) { cur = i; showStep(); validateStep(seq[i]); return; } }
+    if ($("#website_url").value) return; // bot trap
+
+    const sections = collectSections();
+    const name = $("#first").value.trim() + " " + $("#last").value.trim();
+    const subject = "New quote request: " + selected().map(k => COVERAGE[k].short).join(" + ") + " — " + name + " (SC " + $("#zip").value.trim() + ")";
+
+    const quoteURL = endpointFor(QUOTE_FORM_ID);
+    if (quoteURL) {
+      const payload = { _subject: subject, _replyto: $("#email").value.trim(), _template: "table", _captcha: "false" };
+      sections.forEach(s => s.rows.forEach(r => { payload[s.title + " — " + r[0]] = r[1]; }));
+      const btn = $("#sendBtn"); btn.disabled = true; btn.textContent = "Sending…";
+      try {
+        const res = await fetch(quoteURL, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) });
+        if (!res.ok) throw new Error(res.status);
+        showDone(subject, sections, true);
+      } catch (err) {
+        btn.disabled = false; btn.textContent = "Try again →";
+        alertInline($("#reviewBox"), "We couldn't send your request. Please try again or call " + AGENCY.phone + ".");
+      }
+    } else {
+      showDone(subject, sections, false);
+    }
+  }
+
+  function alertInline(before, msg) {
+    let el = $("#sendErr");
+    if (!el) { el = document.createElement("div"); el.id = "sendErr"; el.className = "step-err show"; before.parentNode.insertBefore(el, before); }
+    el.textContent = msg;
+  }
+
+  function emailPreview(subject, sections, fromName, fromEmail) {
+    const now = new Date().toLocaleString(undefined, { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+    return '<div class="email"><div class="chrome"><i></i><i></i><i></i></div>' +
+      '<div class="meta"><div><span>From</span><b>' + esc(fromName) + "</b>&nbsp;&lt;" + esc(fromEmail) + "&gt;</div>" +
+      "<div><span>To</span>" + esc(AGENCY.email) + "</div><div><span>Date</span>" + esc(now) + "</div>" +
+      '<div class="subj">' + esc(subject) + "</div></div>" +
+      '<div class="body">' + sections.map(s =>
+        "<h4>" + esc(s.title) + "</h4><table>" + s.rows.map(r => "<tr><td>" + esc(r[0]) + "</td><td>" + esc(r[1]) + "</td></tr>").join("") + "</table>").join("") +
+      "</div></div>";
+  }
+
+  function showDone(subject, sections, sent) {
+    const first = $("#first").value.trim();
+    form.hidden = true;
+    $("#quoteDone").hidden = false;
+    $("#quoteDone").innerHTML =
+      '<div class="done"><div class="check">✓</div>' +
+      "<h2>Thanks, " + esc(first) + "! Your request is in.</h2>" +
+      "<p>Your agent will compare carriers and reach out by <b>" + esc((answerOf("contactPref") || "phone").toLowerCase()) + "</b> — usually within one business day. Need help sooner? Call <b>" + esc(AGENCY.phone) + "</b>.</p>" +
+      (sent ? "" :
+        '<div class="demo-label">Prototype preview · what lands in the agency inbox</div>' +
+        emailPreview(subject, sections, $("#first").value.trim() + " " + $("#last").value.trim(), $("#email").value.trim()) +
+        '<p style="color:var(--muted);font-size:13px;margin-top:14px">In the live site this email is delivered automatically through Formspree. Reply goes straight to the customer.</p>') +
+      '<div style="margin-top:26px"><a href="#" class="btn btn-line">Back to home</a></div></div>';
+    $("#quotePanel").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  /* ================================================================
+     CONTACT FORM
+     ================================================================ */
+  $("#contactForm").addEventListener("submit", (e) => e.preventDefault());
+  $("#cfSend").addEventListener("click", async () => {
+    const n = $("#cf-name").value.trim(), em = $("#cf-email").value.trim(), m = $("#cf-msg").value.trim();
+    $("#cf-name-f").classList.toggle("bad", !n);
+    $("#cf-email-f").classList.toggle("bad", !emailOk(em));
+    $("#cf-msg-f").classList.toggle("bad", !m);
+    if (!n || !emailOk(em) || !m) return;
+    const topic = $("#cf-topic").value;
+    const sections = [{ title: "Message", rows: [["Name", n], ["Email", em], ["Phone", $("#cf-phone").value.trim() || "—"], ["Topic", topic], ["Message", m]] }];
+    const subject = "Website message: " + topic + " — " + n;
+    const contactURL = endpointFor(CONTACT_FORM_ID);
+    if (contactURL) {
+      try {
+        const res = await fetch(contactURL, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify({ _subject: subject, _replyto: em, name: n, email: em, phone: $("#cf-phone").value.trim(), topic, message: m }) });
+        if (!res.ok) throw 0;
+      } catch (x) { alertInline($("#contactForm").firstElementChild, "Couldn't send — please try again."); return; }
+    }
+    $("#contactPanel").innerHTML = '<div class="done"><div class="check">✓</div><h2>Message sent</h2><p>Thanks, ' + esc(n.split(" ")[0]) + ". We'll get back to you within one business day.</p>" +
+      (contactURL ? "" : '<div class="demo-label">Prototype preview · agency inbox</div>' + emailPreview(subject, sections, n, em)) + "</div>";
+  });
+  $("#contactForm").addEventListener("input", (e) => { const f = e.target.closest(".field.bad"); if (f) f.classList.remove("bad"); });
+
+  /* ================================================================
+     INIT
+     ================================================================ */
+  $$(".js-tel").forEach(a => a.href = telHref()); // after all menus/cards are built
+  window.addEventListener("hashchange", route);
+  route();
+})();
+</script>
+</body>
+</html>
