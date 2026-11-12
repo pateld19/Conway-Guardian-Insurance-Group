@@ -1,0 +1,16 @@
+# Files Cloudflare must NOT publish as part of the website
+.git
+.github
+.claude
+node_modules
+tests
+test-results
+playwright-report
+package.json
+package-lock.json
+playwright.config.js
+wrangler.jsonc
+.assetsignore
+.gitignore
+README.md
+.wrangler
