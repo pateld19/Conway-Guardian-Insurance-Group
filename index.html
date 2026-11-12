@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Conway Guardian Insurance Group — Auto, Home, Renters, Landlord & Business Insurance</title>
 <meta name="description" content="Conway Guardian Insurance Group is an independent insurance agency proudly serving South Carolina. We compare coverage options from multiple carriers for auto, home, renters, landlord and business insurance." />
+<link rel="icon" type="image/png" href="assets/favicon-64.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<meta property="og:image" content="assets/carriers-banner.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -51,8 +54,8 @@
   }
   header.site .wrap { display: flex; align-items: center; gap: 22px; height: 72px; }
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--navy); }
-  .logo .mark { width: 40px; height: 40px; border-radius: 11px; background: var(--navy); color: var(--gold); display: grid; place-items: center; }
-  .logo .mark svg { width: 24px; height: 24px; }
+  .logo .mark { width: 50px; height: 50px; border-radius: 50%; flex: none; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(11,37,69,.25)); }
+  footer .logo .mark { width: 64px; height: 64px; filter: none; }
   .logo .name { font-family: var(--serif); font-weight: 700; font-size: 19px; line-height: 1.05; letter-spacing: -.01em; }
   .logo .name small { display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
 
@@ -171,6 +174,10 @@
   .quick .btn { width: 100%; }
   .quick .err { color: var(--danger); font-size: 13.5px; font-weight: 600; margin: -6px 0 10px; display: none; }
   .quick .err.show { display: block; }
+
+  /* ---------- Carriers banner ---------- */
+  .carriers { background: var(--navy); line-height: 0; border-bottom: 4px solid var(--gold); }
+  .carriers picture, .carriers img { display: block; width: 100%; height: auto; max-width: 1600px; margin: 0 auto; }
 
   /* ---------- Coverage cards ---------- */
   .cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 40px; }
@@ -515,7 +522,7 @@
 <header class="site">
   <div class="wrap">
     <a href="#" class="logo" aria-label="Conway Guardian Insurance Group — home">
-      <span class="mark"><svg class="ico"><use href="#i-shield"/></svg></span>
+      <img class="mark" src="assets/logo-512.webp" alt="" width="48" height="48" />
       <span class="name">Conway Guardian<small>Insurance Group</small></span>
     </a>
     <nav class="main" aria-label="Main">
@@ -536,7 +543,7 @@
 
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu">
   <div class="head">
-    <a href="#" class="logo"><span class="mark"><svg class="ico"><use href="#i-shield"/></svg></span><span class="name">Conway Guardian<small>Insurance Group</small></span></a>
+    <a href="#" class="logo"><img class="mark" src="assets/logo-512.webp" alt="" width="48" height="48" /><span class="name">Conway Guardian<small>Insurance Group</small></span></a>
     <button class="burger" style="display:grid" id="closeNav" aria-label="Close menu"><svg class="ico"><use href="#i-x"/></svg></button>
   </div>
   <div class="links" id="mobileLinks"></div>
@@ -570,6 +577,14 @@
           <button type="button" class="btn btn-navy btn-lg" id="quickGo">Start my quote →</button>
         </form>
       </div>
+    </section>
+
+    <section class="carriers" aria-label="Insurance carriers and markets we work with">
+      <picture>
+        <source type="image/webp" srcset="assets/carriers-banner-1200.webp 1200w, assets/carriers-banner.webp 2172w" sizes="(max-width: 1600px) 100vw, 1600px" />
+        <img src="assets/carriers-banner.jpg" width="2172" height="724" loading="lazy" decoding="async"
+             alt="Insurance carriers and markets we work with: Progressive, National General (an Allstate company), Foremost Insurance Group, Bristol West, Steadily, REInsurePro, Pathpoint, Annex Risk, and many more. Carrier availability and coverage options vary by eligibility, underwriting guidelines, and product availability." />
+      </picture>
     </section>
 
     <section class="band">
@@ -844,7 +859,7 @@
   <div class="wrap">
     <div class="cols">
       <div>
-        <a href="#" class="logo"><span class="mark"><svg class="ico"><use href="#i-shield"/></svg></span><span class="name">Conway Guardian<small>Insurance Group</small></span></a>
+        <a href="#" class="logo"><img class="mark" src="assets/logo-512.webp" alt="" width="48" height="48" /><span class="name">Conway Guardian<small>Insurance Group</small></span></a>
         <p style="max-width:300px">Independent insurance agency proudly serving individuals, families, property owners and businesses in South Carolina.</p>
       </div>
       <div><h5>Coverage</h5><ul id="footCov"></ul></div>
