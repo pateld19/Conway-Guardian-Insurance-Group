@@ -176,8 +176,27 @@
   .quick .err.show { display: block; }
 
   /* ---------- Carriers banner ---------- */
-  .carriers { background: var(--navy); line-height: 0; border-bottom: 4px solid var(--gold); }
+  .carriers { background: var(--navy); line-height: 0; }
   .carriers picture, .carriers img { display: block; width: 100%; height: auto; max-width: 1600px; margin: 0 auto; }
+
+  .ticker { background: var(--navy); border-bottom: 4px solid var(--gold); overflow: hidden; position: relative; padding: 16px 0; }
+  .ticker::before, .ticker::after { content: ""; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; pointer-events: none; }
+  .ticker::before { left: 0; background: linear-gradient(90deg, var(--navy), transparent); }
+  .ticker::after { right: 0; background: linear-gradient(270deg, var(--navy), transparent); }
+  .ticker-track { display: flex; width: max-content; animation: ticker 32s linear infinite; }
+  .ticker:hover .ticker-track, .ticker:focus-within .ticker-track { animation-play-state: paused; }
+  .ticker ul { display: flex; list-style: none; flex: none; }
+  .ticker li { display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; white-space: nowrap; font: 700 17px var(--sans); letter-spacing: .02em; color: #fff; }
+  .ticker li::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex: none; }
+  .ticker li.more { font-family: var(--serif); font-style: italic; color: var(--gold); }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (max-width: 700px) { .ticker { padding: 12px 0; } .ticker li { font-size: 15px; gap: 20px; padding-right: 20px; } .ticker-track { animation-duration: 24s; } }
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track { width: auto; justify-content: center; }
+    .ticker ul { flex-wrap: wrap; justify-content: center; row-gap: 8px; }
+    .ticker ul[aria-hidden] { display: none; }
+    .ticker::before, .ticker::after { display: none; }
+  }
 
   /* ---------- Coverage cards ---------- */
   .cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 40px; }
@@ -586,6 +605,12 @@
              alt="Insurance carriers and markets we work with: Progressive, National General (an Allstate company), Foremost Insurance Group, Bristol West, Steadily, REInsurePro, Pathpoint, Annex Risk, and many more. Carrier availability and coverage options vary by eligibility, underwriting guidelines, and product availability." />
       </picture>
     </section>
+    <div class="ticker" aria-label="Carriers we work with">
+      <div class="ticker-track">
+        <ul><li>Progressive</li><li>National General</li><li>Foremost Insurance Group</li><li>Bristol West</li><li>Steadily</li><li>REInsurePro</li><li>Pathpoint</li><li>Annex Risk</li><li class="more">And many more</li></ul>
+        <ul aria-hidden="true"><li>Progressive</li><li>National General</li><li>Foremost Insurance Group</li><li>Bristol West</li><li>Steadily</li><li>REInsurePro</li><li>Pathpoint</li><li>Annex Risk</li><li class="more">And many more</li></ul>
+      </div>
+    </div>
 
     <section class="band">
       <div class="wrap center">
