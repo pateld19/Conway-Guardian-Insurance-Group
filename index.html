@@ -7,7 +7,7 @@
 <meta name="description" content="Conway Guardian Insurance Group is an independent insurance agency proudly serving South Carolina. We compare coverage options from multiple carriers for auto, home, renters, landlord and business insurance." />
 <link rel="icon" type="image/png" href="assets/favicon-64.png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-<meta property="og:image" content="assets/carriers-banner.jpg" />
+<meta property="og:image" content="assets/logo-512.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -175,27 +175,31 @@
   .quick .err { color: var(--danger); font-size: 13.5px; font-weight: 600; margin: -6px 0 10px; display: none; }
   .quick .err.show { display: block; }
 
-  /* ---------- Carriers banner ---------- */
-  .carriers { background: var(--navy); line-height: 0; }
-  .carriers picture, .carriers img { display: block; width: 100%; height: auto; max-width: 1600px; margin: 0 auto; }
-
-  .ticker { background: var(--navy); border-bottom: 4px solid var(--gold); overflow: hidden; position: relative; padding: 16px 0; }
-  .ticker::before, .ticker::after { content: ""; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; pointer-events: none; }
-  .ticker::before { left: 0; background: linear-gradient(90deg, var(--navy), transparent); }
-  .ticker::after { right: 0; background: linear-gradient(270deg, var(--navy), transparent); }
-  .ticker-track { display: flex; width: max-content; animation: ticker 32s linear infinite; }
-  .ticker:hover .ticker-track, .ticker:focus-within .ticker-track { animation-play-state: paused; }
-  .ticker ul { display: flex; list-style: none; flex: none; }
-  .ticker li { display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; white-space: nowrap; font: 700 17px var(--sans); letter-spacing: .02em; color: #fff; }
-  .ticker li::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex: none; }
-  .ticker li.more { font-family: var(--serif); font-style: italic; color: var(--gold); }
-  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  @media (max-width: 700px) { .ticker { padding: 12px 0; } .ticker li { font-size: 15px; gap: 20px; padding-right: 20px; } .ticker-track { animation-duration: 24s; } }
+  /* ---------- Carrier logo marquee ---------- */
+  .partners { background: #fff; border-bottom: 1px solid var(--line); padding: 40px 0 34px; text-align: center; }
+  .partners-title { font-size: 17px; color: var(--ink-2); margin-bottom: 26px; }
+  .partners-title b { color: var(--navy); }
+  .partners-note { font-size: 13px; color: var(--muted); margin-top: 24px; }
+  .partners-note b { color: var(--navy-3); }
+  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+  .marquee-track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee ul { display: flex; align-items: center; list-style: none; flex: none; }
+  .marquee li { flex: none; padding: 0 36px; }
+  .marquee img { display: block; height: 44px; width: auto; max-width: 220px; object-fit: contain; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (max-width: 700px) {
+    .partners { padding: 30px 0 26px; }
+    .partners-title { font-size: 15px; margin-bottom: 18px; padding: 0 8px; }
+    .marquee li { padding: 0 22px; }
+    .marquee img { height: 32px; max-width: 150px; }
+    .marquee-track { animation-duration: 28s; }
+  }
   @media (prefers-reduced-motion: reduce) {
-    .ticker-track { width: auto; justify-content: center; }
-    .ticker ul { flex-wrap: wrap; justify-content: center; row-gap: 8px; }
-    .ticker ul[aria-hidden] { display: none; }
-    .ticker::before, .ticker::after { display: none; }
+    .marquee { -webkit-mask-image: none; mask-image: none; }
+    .marquee-track { width: auto; }
+    .marquee ul { flex-wrap: wrap; justify-content: center; row-gap: 18px; width: 100%; }
+    .marquee ul[aria-hidden] { display: none; }
   }
 
   /* ---------- Coverage cards ---------- */
@@ -598,18 +602,21 @@
       </div>
     </section>
 
-    <section class="carriers" aria-label="Insurance carriers and markets we work with">
-      <picture>
-        <source type="image/webp" srcset="assets/carriers-banner-1200.webp 1200w, assets/carriers-banner.webp 2172w" sizes="(max-width: 1600px) 100vw, 1600px" />
-        <img src="assets/carriers-banner.jpg" width="2172" height="724" loading="lazy" decoding="async"
-             alt="Insurance carriers and markets we work with: Progressive, National General (an Allstate company), Foremost Insurance Group, Bristol West, Steadily, REInsurePro, Pathpoint, Annex Risk, and many more. Carrier availability and coverage options vary by eligibility, underwriting guidelines, and product availability." />
-      </picture>
-    </section>
-    <div class="ticker" aria-label="Carriers we work with">
-      <div class="ticker-track">
-        <ul><li>Progressive</li><li>National General</li><li>Foremost Insurance Group</li><li>Bristol West</li><li>Steadily</li><li>REInsurePro</li><li>Pathpoint</li><li>Annex Risk</li><li class="more">And many more</li></ul>
-        <ul aria-hidden="true"><li>Progressive</li><li>National General</li><li>Foremost Insurance Group</li><li>Bristol West</li><li>Steadily</li><li>REInsurePro</li><li>Pathpoint</li><li>Annex Risk</li><li class="more">And many more</li></ul>
+    <section class="partners" aria-labelledby="partnersTitle">
+      <div class="wrap">
+        <p class="partners-title" id="partnersTitle">We shop <b>multiple insurance carriers &amp; markets</b> to find coverage that fits you</p>
       </div>
+      <div class="marquee">
+        <div class="marquee-track">
+          <ul><li><img src="assets/carriers/progressive.webp" alt="Progressive" height="44" decoding="async" /></li><li><img src="assets/carriers/national-general.webp" alt="National General, an Allstate company" height="44" decoding="async" /></li><li><img src="assets/carriers/foremost.webp" alt="Foremost Insurance Group" height="44" decoding="async" /></li><li><img src="assets/carriers/bristol-west.webp" alt="Bristol West" height="44" decoding="async" /></li><li><img src="assets/carriers/steadily.webp" alt="Steadily" height="44" decoding="async" /></li><li><img src="assets/carriers/reinsurepro.webp" alt="REInsurePro" height="44" decoding="async" /></li><li><img src="assets/carriers/pathpoint.webp" alt="Pathpoint" height="44" decoding="async" /></li><li><img src="assets/carriers/annex-risk.webp" alt="Annex Risk" height="44" decoding="async" /></li></ul>
+          <ul aria-hidden="true"><li><img src="assets/carriers/progressive.webp" alt="" height="44" decoding="async" /></li><li><img src="assets/carriers/national-general.webp" alt="" height="44" decoding="async" /></li><li><img src="assets/carriers/foremost.webp" alt="" height="44" decoding="async" /></li><li><img src="assets/carriers/bristol-west.webp" alt="" height="44" decoding="async" /></li><li><img src="assets/carriers/steadily.webp" alt="" height="44" decoding="async" /></li><li><img src="assets/carriers/reinsurepro.webp" alt="" height="44" decoding="async" /></li><li><img src="assets/carriers/pathpoint.webp" alt="" height="44" decoding="async" /></li><li><img src="assets/carriers/annex-risk.webp" alt="" height="44" decoding="async" /></li></ul>
+        </div>
+      </div>
+      <div class="wrap">
+        <p class="partners-note"><b>And many more.</b> Carrier availability and coverage options vary by eligibility, underwriting guidelines, and product availability.</p>
+      </div>
+    </section>
+
     </div>
 
     <section class="band">
