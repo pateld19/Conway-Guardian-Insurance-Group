@@ -1,0 +1,50 @@
+name: CheckEverythingWorks
+
+# Clicks every button and link on the site, fills in every form, and fails if anything breaks.
+# Runs on every pull request (so problems are caught BEFORE merging), on every update to main,
+# and on demand from the Actions tab — optionally against the live site.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: "Check a live site instead of the code in the repo (e.g. your Cloudflare workers.dev link). Leave blank to test the repo."
+        required: false
+        default: ""
+
+concurrency:
+  group: check-everything-works-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install tools
+        run: npm ci
+
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Click everything
+        run: npm run check -- --workers=4
+        env:
+          SITE_URL: ${{ github.event.inputs.site_url }}
+
+      - name: Save the report (screenshots + recordings of any failures)
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: check-everything-works-report
+          path: playwright-report/
+          retention-days: 14

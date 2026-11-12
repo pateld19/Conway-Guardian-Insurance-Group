@@ -1,0 +1,13 @@
+// Cloudflare settings for the Conway Guardian site.
+// No passwords or API keys go in this file. The repo is public.
+// Secrets belong in Cloudflare: Worker → Settings → Variables and Secrets.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "conway-guardian-insurance-group",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    // Serve the website straight from the repo root.
+    // Files listed in .assetsignore (tests, tools, settings) are never published.
+    "directory": "."
+  }
+}
